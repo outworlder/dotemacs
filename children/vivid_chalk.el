@@ -100,7 +100,7 @@
     (progn
       (set-face-font 'ido-first-match st-default-font)
       (set-face-foreground 'ido-first-match "Red")))
-      
+
 ;;(set-face-font 'svn-status-filename-face (read-face-font 'fixed-pitch)) ;;TODO
 ;;(set-face-font 'svn-status-filename-face "-unknown-DejaVu Sans Mono-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
 ;; Svn-status hook, changing the default font
