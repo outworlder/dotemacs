@@ -1,7 +1,7 @@
 ;; Loading color themes
 (require 'color-theme)
 
-;;----------------------------------------------------------------------------- 
+;;-----------------------------------------------------------------------------
 ;; Custom color theme (Based on Textmate's Vibrant Ink
 ;;-----------------------------------------------------------------------------
 (defun color-theme-vivid-chalk ()
@@ -77,13 +77,14 @@
 ;; spacing: m (monospaced)/ p (proportional)/ c (character cell)
 ;; Setting the default font
 
-;; (setq st-default-font "-apple-monaco-medium-r-normal--16-140-72-72-m-140-mac-roman")
-;; (setq st-smaller-font "-apple-monaco-medium-r-normal--14-140-72-72-m-140-mac-roman")
-;; (setq st-default-font "-apple-monaco-medium-r-normal--14-140-72-72-m-140-mac-roman")
+(setq st-default-font "-apple-monaco-medium-r-normal--16-140-72-72-m-140-mac-roman")
+(setq st-smaller-font "-apple-monaco-medium-r-normal--14-140-72-72-m-140-mac-roman")
+;;(setq st-default-font "-apple-monaco-medium-r-normal--14-140-72-72-m-140-mac-roman")
 
-(setq st-default-font "-unknown-DejaVu Sans-bold-normal-normal-*-16-*-*-*-*-0-iso10646-1")
-(setq st-smaller-font "-unknown-DejaVu Sans-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
-(setq st-svn-status-font "-unknown-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-*-0-iso10646-1")
+;; The fonts below are only for Unix machines.
+;; (setq st-default-font "-unknown-DejaVu Sans-bold-normal-normal-*-16-*-*-*-*-0-iso10646-1")
+;; (setq st-smaller-font "-unknown-DejaVu Sans-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
+;; (setq st-svn-status-font "-unknown-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-*-0-iso10646-1")
 
 (set-default-font st-default-font)
 ;; Setting font for new frames
@@ -93,7 +94,8 @@
 (set-face-font 'mode-line st-smaller-font)
 (set-face-font 'mode-line-inactive st-smaller-font)
 ;;(set-face-font 'modeline-mousable "-unknown-DejaVu Sans-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
-(set-face-font 'minibuffer-prompt st-default-font)
+(set-face-font 'modeline-mousable st-smaller-font)
+(set-face-font 'minibuffer-prompt st-smaller-font)
 (set-face-foreground 'mode-line "White")
 
 (if (featurep 'ido)
@@ -106,5 +108,5 @@
 ;; Svn-status hook, changing the default font
 (if (boundp 'buffer-face-set)
     (add-hook 'svn-status-mode-hook
-	      (lambda ()
-		(buffer-face-set 'fixed-pitch))))
+              (lambda ()
+                (buffer-face-set 'fixed-pitch))))

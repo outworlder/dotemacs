@@ -41,13 +41,14 @@
                               "~/.emacs.d/emacs-jabber-0.7.1/"
                               "~/.emacs.d/w3m-0.5.2/"
                               "~/.emacs.d/rdebug/"
-			      "~/.emacs.d/dictionary-1.8.7"
-			      "~/.emacs.d/emms"
-			      "~/.emacs.d/rhtml"
-			      "~/.emacs.d/git-emacs-1.1"
-			      "~/.emacs.d/tomtt-emacs-rails"
-			      "~/.emacs.d/nxml"			      
+                              "~/.emacs.d/dictionary-1.8.7"
+                              "~/.emacs.d/emms"
+                              "~/.emacs.d/rhtml"
+                              "~/.emacs.d/git-emacs-1.1"
+                              "~/.emacs.d/tomtt-emacs-rails"
+                              "~/.emacs.d/nxml"
                               "~/.emacs.d"
+                              "~/.emacs.children/support"
                               ) load-path ))
 
 (if (string-equal (system-name) "Arcturus")
@@ -84,7 +85,8 @@
 (set-face-background 'flymake-errline "coral4")
 
 ;; Enabling Jabber mode
-(require 'jabber)
+;; NOTE: Jabber support has been disabled. Never worked properly anyway.
+;;(require 'jabber)
 
 ;; Loading mode to track work being done
 (require 'worklog)
@@ -98,17 +100,17 @@
 ;; Loading the various .emacs files
 (setq dotemacs-children-prefix "~/.emacs.children/")
 (setq dotemacs-children-list '("elisp"
-			       "ruby"
-			       "options"
-			       "ido"
-			       "dictionary"
-			       "functions"
-			       "vivid_chalk"
-			       "git"
-			       "keymaps"))
+                               "ruby"
+                               "options"
+                               "ido"
+                               "dictionary"
+                               "functions"
+                               "vivid_chalk"
+;;                             "git"
+                               "keymaps"))
 (mapc (lambda(x)
-	(load
-	 (concat dotemacs-children-prefix x ".el"))) dotemacs-children-list)
+        (load
+         (concat dotemacs-children-prefix x ".el"))) dotemacs-children-list)
 
 ;;-----------------------------------------------------------------------------
 
