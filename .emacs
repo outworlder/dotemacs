@@ -76,9 +76,11 @@
 (require 'psvn)
 
 ;; Setting cursor to a bar one.
-;; This is unecessary and unavailable on Aquamacs.
-;;(bar-cursor-mode)
-;;(set-cursor-color "red")
+(if (fboundp 'bar-cursor-mode)
+    (bar-cursor-mode))
+
+(if (fboundp 'set-cursor-color)
+    (set-cursor-color "red"))
 
 ;; Changing the flymake error face
 (require 'flymake)
@@ -106,11 +108,12 @@
                                "dictionary"
                                "functions"
                                "vivid_chalk"
-;;                             "git"
+			       ;; "git"
                                "keymaps"))
 (mapc (lambda(x)
-        (load
-         (concat dotemacs-children-prefix x ".el"))) dotemacs-children-list)
+	(condition-case nil
+	    (load (concat dotemacs-children-prefix x ".el"))
+	  (error (message "Unable to load file: %s" x)))) dotemacs-children-list)
 
 ;;-----------------------------------------------------------------------------
 
@@ -166,3 +169,14 @@
 
 ;; enabling the server
 (server-start)
+
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
