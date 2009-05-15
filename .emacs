@@ -76,6 +76,8 @@
 ;; Loading the svn script
 (require 'psvn)
 
+;; This should not fail - bar cursor is now included.
+(require 'bar-cursor)
 ;; Setting cursor to a bar one.
 (if (fboundp 'bar-cursor-mode)
     (bar-cursor-mode))
