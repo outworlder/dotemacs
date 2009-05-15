@@ -66,7 +66,7 @@
           (lambda()
             (inf-ruby-keys)))
 
-(add-hook 'ruby-mode-hook 'turn-on-font-lock)
+;;(add-hook 'ruby-mode-hook 'turn-on-font-lock)
 
 ;; TODO: Only check this for .rb files.
 ;; Warns if we are saving a file with a debugger statement

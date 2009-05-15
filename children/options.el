@@ -45,7 +45,7 @@
 (if (eq emacs-location :atlantico)
     (progn
       (setq ecb-source-path (quote ("~/projetos/lvs/subversion/trunk")))
-      (setq default-directory "~/projetos")
+      (setq default-directory "~/projects")
       (require 'jira)
       (setq jira-url "http://jira.atlantico.com.br/rpc/xmlrpc"))
   (progn

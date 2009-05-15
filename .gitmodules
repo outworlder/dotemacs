@@ -1,0 +1,3 @@
+[submodule "children/support/emacs-rails"]
+	path = children/support/emacs-rails
+	url = git://github.com/tomtt/emacs-rails.git
