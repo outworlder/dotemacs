@@ -165,6 +165,9 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(highlight-current-line-face ((t (:background "darkcyan"))))
+ '(magit-branch ((t (:inherit magit-header :background "blue" :slant italic :weight bold))))
+ '(magit-diff-hunk-header ((t (:inherit magit-header :background "darkgreen"))))
+ '(magit-header ((t (:background "darkred"))))
  '(quack-pltish-comment-face ((((class color) (background light)) (:foreground "red4"))))
  '(quack-pltish-defn-face ((t (:foreground "white" :slant italic :weight bold)))))
 
