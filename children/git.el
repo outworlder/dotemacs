@@ -1,1 +1,1 @@
-(require 'git-emacs)
+(require 'magit)

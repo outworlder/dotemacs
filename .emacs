@@ -49,6 +49,7 @@
                               "~/.emacs.d/nxml"
                               "~/.emacs.d"
                               "~/.emacs.children/support"
+                              "~/.emacs.children/support/emacs-rails"
                               ) load-path ))
 
 (if (string-equal (system-name) "Arcturus")
@@ -75,6 +76,8 @@
 ;; Loading the svn script
 (require 'psvn)
 
+;; This should not fail - bar cursor is now included.
+(require 'bar-cursor)
 ;; Setting cursor to a bar one.
 (if (fboundp 'bar-cursor-mode)
     (bar-cursor-mode))
@@ -166,6 +169,9 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(highlight-current-line-face ((t (:background "darkcyan"))))
+ '(magit-branch ((t (:inherit magit-header :background "blue" :slant italic :weight bold))))
+ '(magit-diff-hunk-header ((t (:inherit magit-header :background "darkgreen"))))
+ '(magit-header ((t (:background "darkred"))))
  '(quack-pltish-comment-face ((((class color) (background light)) (:foreground "red4"))))
  '(quack-pltish-defn-face ((t (:foreground "white" :slant italic :weight bold)))))
 
@@ -173,6 +179,17 @@
 
 ;; enabling the server
 (server-start)
+
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
 
 
 ;;; This was installed by package-install.el.
