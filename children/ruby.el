@@ -37,21 +37,21 @@
 
 (defun nxml-rails-mode ()
   (interactive)
-  (rails-view-minor-mode t)
+  (eruby-nxhtml-mumamo)
   (rails-minor-mode t)
-  (eruby-nxhtml-mumamo-mode))
+  (rails-view-minor-mode t))
 
 ;; Changing rails' filenames list to use nxml-mode instead of html-mode for views.
-;; TODO: This works. However, the rails mode is not activated.
-;; (setcdr
-;;   (assoc "\\.rhtml$" auto-mode-alist) 'nxml-rails-mode)
+;; TODO: This works. However, the rails mode is not activated. The problem might be a hook
+(setcdr
+  (assoc "\\.rhtml$" auto-mode-alist) 'nxml-rails-mode)
 
 ;; ;; Converting eruby-nxhtml-mumamo to nxml-rails-mode
-;; (mapc (lambda(element)
-;;      (if (eql (cdr element) 'eruby-nxhtml-mumamo-mode)
-;;          (setcdr element 'nxml-rails-mode))) auto-mode-alist)
+(mapc (lambda(element)
+	(if (eql (cdr element) 'eruby-nxhtml-mumamo-mode)
+	    (setcdr element 'nxml-rails-mode))) auto-mode-alist)
 
-;; (add-to-list 'auto-mode-alist '("\\.html.erb$" . rhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.html.erb$" . nxml-rails-mode))
 
 ;; YAML Mode
 (require 'yaml-mode)
