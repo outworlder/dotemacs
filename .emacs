@@ -94,10 +94,11 @@
 (require 'worklog)
 
 ;; Loading VM mail reader
-(autoload 'vm "~/vm" "Start VM on your primary inbox." t)
-(autoload 'vm-visit-folder "~/vm" "Start VM on an arbitrary folder." t)
-(autoload 'vm-mail "~/vm" "Send a mail message using VM." t)
-(autoload 'vm-submit-bug-report "~/vm" "Send a bug report about VM." t)
+;; TODO: Figure out how to (portably) enable VM.
+;; (autoload 'vm "~/vm" "Start VM on your primary inbox." t)
+;; (autoload 'vm-visit-folder "~/vm" "Start VM on an arbitrary folder." t)
+;; (autoload 'vm-mail "~/vm" "Send a mail message using VM." t)
+;; (autoload 'vm-submit-bug-report "~/vm" "Send a bug report about VM." t)
 
 ;; Loading the various .emacs files
 (setq dotemacs-children-prefix "~/.emacs.children/")
@@ -108,12 +109,15 @@
                                "dictionary"
                                "functions"
                                "vivid_chalk"
-			       ;; "git"
-                               "keymaps"))
+			       "git"
+                               "keymaps"
+			       "scheme"))
 (mapc (lambda(x)
-	(condition-case nil
-	    (load (concat dotemacs-children-prefix x ".el"))
-	  (error (message "Unable to load file: %s" x)))) dotemacs-children-list)
+	(condition-case err-message
+	    (unwind-protect
+		(load (concat dotemacs-children-prefix x ".el"))
+	      (message "Finished loading file: %s" x))
+	  (error (message "Unable to load file: %s" err-message)))) dotemacs-children-list)
 
 ;;-----------------------------------------------------------------------------
 
