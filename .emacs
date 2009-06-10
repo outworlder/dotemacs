@@ -114,6 +114,7 @@
                                "vivid_chalk"
 			       "git"
                                "keymaps"
+			       "twit"
 			       "scheme"))
 (mapc (lambda(x)
 	(condition-case err-message
@@ -162,7 +163,10 @@
  '(rails-tags-command "ctags-exuberant -e -a --Ruby-kinds=-f -o %s -R %s")
  '(rails-ws:default-server-type "mongrel")
  '(show-paren-mode t)
- '(speedbar-use-images t))
+ '(speedbar-use-images t)
+ '(twit-show-user-images t)
+ '(twit-user "spedrosa@gmail.com")
+ '(twit-user-image-dir "~/.emacs.twit/images"))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -173,7 +177,8 @@
  '(magit-diff-hunk-header ((t (:inherit magit-header :background "darkgreen"))))
  '(magit-header ((t (:background "darkred"))))
  '(quack-pltish-comment-face ((((class color) (background light)) (:foreground "red4"))))
- '(quack-pltish-defn-face ((t (:foreground "white" :slant italic :weight bold)))))
+ '(quack-pltish-defn-face ((t (:foreground "white" :slant italic :weight bold))))
+ '(twit-message-face ((default (:inherit nil :height 1.1)) (nil nil))))
 
 ;;-----------------------------------------------------------------------------
 
