@@ -4,3 +4,6 @@
 [submodule "children/support/magit"]
 	path = children/support/magit
 	url = http://git.gitorious.org/magit/mainline.git
+[submodule "children/support/twit"]
+	path = children/support/twit
+	url = git://github.com/ieure/twit-el.git

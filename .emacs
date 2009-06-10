@@ -164,6 +164,8 @@
  '(rails-ws:default-server-type "mongrel")
  '(show-paren-mode t)
  '(speedbar-use-images t)
+ '(twit-follow-idle-interval 5)
+ '(twit-pass "necromancer")
  '(twit-show-user-images t)
  '(twit-user "spedrosa@gmail.com")
  '(twit-user-image-dir "~/.emacs.twit/images"))
@@ -178,7 +180,7 @@
  '(magit-header ((t (:background "darkred"))))
  '(quack-pltish-comment-face ((((class color) (background light)) (:foreground "red4"))))
  '(quack-pltish-defn-face ((t (:foreground "white" :slant italic :weight bold))))
- '(twit-message-face ((default (:inherit nil :height 1.1)) (nil nil))))
+ '(twit-message-face ((default (:inherit nil :height 1.1 :family "sans")) (nil nil))))
 
 ;;-----------------------------------------------------------------------------
 
