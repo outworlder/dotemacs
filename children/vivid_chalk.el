@@ -82,7 +82,7 @@
 ;;(setq st-default-font "-apple-monaco-medium-r-normal--14-140-72-72-m-140-mac-roman")
 
 ;; The fonts below are only for Unix machines.
-(setq st-default-font "-unknown-DejaVu Sans-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
+(setq st-default-font "-unknown-DejaVu Sans Mono-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
 (setq st-smaller-font "-unknown-DejaVu Sans-bold-normal-normal-*-12-*-*-*-*-0-iso10646-1")
 (setq st-svn-status-font "-unknown-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-*-0-iso10646-1")
 
