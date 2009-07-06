@@ -144,6 +144,7 @@
  '(rails-ws:default-server-type "mongrel")
  '(show-paren-mode t)
  '(speedbar-use-images t)
+ '(todochiku-icons-directory "~/.emacs.children/support/todochiku-icons")
  '(twit-follow-idle-interval 5)
  '(twit-pass "necromancer")
  '(twit-show-user-images t)
