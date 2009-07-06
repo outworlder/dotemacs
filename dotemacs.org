@@ -1,10 +1,12 @@
 * TODO list [0%]
 ** TODO Show loading status for every module (preferably in color)
 ** TODO Investigate recentf
+*** TODO Use recentf if it is worthwhile
 ** TODO Clean up load paths
 ** TODO Rename vivid_chalk.el to a better name (probably theme.el)
 ** TODO Set Emacs-location based on a list of hostnames
 *** TODO Add macros to make the file simpler
 ** TODO Detect if Elpa is loaded or not and download it if necessary
 ** TODO Detect if the desired fonts are available in the system before setting them
-
+** TODO Make the linum-mode not display line numbers in certain buffers (such as the terminal one). 
+*** TODO Also, do not display them in read-only buffers.
