@@ -71,6 +71,9 @@
 ;; Loading mode to track work being done
 (require 'worklog)
 
+;; TODO: Move this outside .emacs
+(require 'todochiku)
+
 ;; Loading VM mail reader
 ;; TODO: Figure out how to (portably) enable VM.
 ;; (autoload 'vm "~/vm" "Start VM on your primary inbox." t)
