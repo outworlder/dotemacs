@@ -5,35 +5,6 @@
 ;; * Create a modular .emacs file. Add the ability to enable and disable selected features
 ;; Ex: Disable ruby support entirely. [PARTIAL - should provide more control and show load status]
 ;; * Investigate Recentf
-;; -------------------- CHANGELOG --------------------
-;; 2009-02-19 - .emacs broken down into distinct modules. Only testes on OS-X
-;; TODO: nxml-mode is utterly broken for rails. Figure out a way to reenable it.
-;; Note: Aquamacs already comes with rails.el
-;; 2008-11-18 - Face customizations
-;; 2008-11-12 - Added a new color theme.
-;; 2008-10-27 - Added function to count the amount of TODOs in a buffer
-;; 2008-07-11 - Changed the flymake error face to a better one (coral4)
-;; 2008-06-11
-;; Added a new function to show issues where I am a participant.
-;; Fixed emms-previous error.
-;; ELPA package order fix.
-;; Added a dictionary.
-;; 2008-06-10
-;; Adding worklog.
-;; Added EMMS/MPD integration.
-;; 2008-06-02
-;; Added a function to display the issues currently assigned to me in Jira.
-;; 2008-04-19
-;; Reorganizing sections.
-;;
-;; 2008-04-18 Stephen Pedrosa Eilert
-;; Atlantico and Home .Emacs unification.
-;; Adding Ruby modes.
-;; Removed Ubuntu-specific dependencies.
-;; Adding the scripts path.
-;; Replacing many lines of "cons" with a single "list" call.
-
-;;-----------------------------------------------------------------------------
 
 (setq load-path (append (list "~/.emacs.d/color-theme-6.6.0/"
                               "~/.emacs.d/color-theme-6.6.0/themes/"
@@ -188,15 +159,4 @@
 
 ;; enabling the server
 (server-start)
-
-
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
 

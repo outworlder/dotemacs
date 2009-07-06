@@ -1,7 +1,10 @@
 
 ;; Loading nXHTML
 (load "~/.emacs.d/nxhtml/autostart")
-(require 'nxml-mode)
+(require 'nxhtml-mumamo)
+;;(require 'nxml-mode)
+
+(require 'speedbar)
 
 ;; Loading emacs rails
 (require 'snippet)
@@ -34,6 +37,7 @@
 ;; (set-face-background 'mumamo-background-chunk-submode "midnight blue")
 
 (require 'rails)
+(require 'rails-view-minor-mode)
 
 (defun nxml-rails-mode ()
   (interactive)
