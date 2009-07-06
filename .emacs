@@ -54,6 +54,9 @@
 (if (fboundp 'bar-cursor-mode)
     (bar-cursor-mode))
 
+;; Displaying line numbers globally
+(global-linum-mode t)
+
 (if (fboundp 'set-cursor-color)
     (set-cursor-color "red"))
 
@@ -109,6 +112,7 @@
  '(erc-nick "outworlder")
  '(erc-track-exclude-types (quote ("JOIN" "NICK" "PART" "QUIT" "333" "353")))
  '(erc-user-full-name "Stephen Pedrosa Eilert")
+ '(highline-ignore-regexp "Faces\\|Colors\\|Minibuf\\|\\*tip\\*\\|\\*.*\\*")
  '(initial-buffer-choice t)
  '(jabber-backlog-number 50)
  '(jabber-connection-type (quote ssl))
@@ -159,4 +163,3 @@
 
 ;; enabling the server
 (server-start)
-
