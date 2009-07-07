@@ -6,20 +6,7 @@
 ;; Ex: Disable ruby support entirely. [PARTIAL - should provide more control and show load status]
 ;; * Investigate Recentf
 
-(setq load-path (append (list "~/.emacs.d/color-theme-6.6.0/"
-                              "~/.emacs.d/color-theme-6.6.0/themes/"
-                              "~/.emacs.d/icicles/"
-                              "~/.emacs.d/emacs-jabber-0.7.1/"
-                              "~/.emacs.d/w3m-0.5.2/"
-                              "~/.emacs.d/rdebug/"
-                              "~/.emacs.d/dictionary-1.8.7"
-                              "~/.emacs.d/emms"
-                              "~/.emacs.d/rhtml"
-                              "~/.emacs.d/git-emacs-1.1"
-                              "~/.emacs.d/tomtt-emacs-rails"
-                              "~/.emacs.d/nxml"
-                              "~/.emacs.d"
-                              "~/.emacs.children/support"
+(setq load-path (append (list "~/.emacs.children/support"
                               "~/.emacs.children/support/emacs-rails"
 			      "~/.emacs.children/support/magit"
                               ) load-path ))
@@ -55,6 +42,7 @@
     (bar-cursor-mode))
 
 ;; Displaying line numbers globally
+(require 'linum)
 (global-linum-mode t)
 
 (if (fboundp 'set-cursor-color)
@@ -63,10 +51,6 @@
 ;; Changing the flymake error face
 (require 'flymake)
 (set-face-background 'flymake-errline "coral4")
-
-;; Enabling Jabber mode
-;; NOTE: Jabber support has been disabled. Never worked properly anyway.
-;;(require 'jabber)
 
 ;; Loading mode to track work being done
 (require 'worklog)
@@ -117,14 +101,6 @@
  '(erc-user-full-name "Stephen Pedrosa Eilert")
  '(highline-ignore-regexp "Faces\\|Colors\\|Minibuf\\|\\*tip\\*\\|\\*.*\\*")
  '(initial-buffer-choice t)
- '(jabber-backlog-number 50)
- '(jabber-connection-type (quote ssl))
- '(jabber-network-server "talk.google.com")
- '(jabber-nickname "Stephen")
- '(jabber-port 443)
- '(jabber-resource "Home")
- '(jabber-server "gmail.com")
- '(jabber-username "spedrosa")
  '(js2-highlight-level 3)
  '(newsticker-url-list (quote (("Smspillaz" "http://smspillaz.wordpress.com/feed/" nil nil nil))))
  '(newsticker-url-list-defaults (quote (("Emacs Wiki" "http://www.emacswiki.org/cgi-bin/wiki.pl?action=rss" nil 3600) ("slashdot" "http://slashdot.org/index.rss" nil 3600))))
