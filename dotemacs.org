@@ -11,3 +11,6 @@
 ** TODO Detect if the desired fonts are available in the system before setting them
 ** TODO Make the linum-mode not display line numbers in certain buffers (such as the terminal one). 
 *** TODO Also, do not display them in read-only buffers.
+** TODO Create another child just for customizing behaviour. And clean up the rest of the .emacs file
+** TODO Move the child loading code to its own file
+** TODO Automatically recompile children and their supporting files
