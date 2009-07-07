@@ -1,8 +1,9 @@
 * TODO list [0%]
 ** TODO Show loading status for every module (preferably in color)
-** TODO Investigate recentf
-*** TODO Use recentf if it is worthwhile
-** TODO Clean up load paths
+** TODO Use recentf if it is worthwhile
+*** DONE Investigate recentf
+*** TODO Research recentf and ido-mode integration
+** DONE Clean up load paths
 ** TODO Rename vivid_chalk.el to a better name (probably theme.el)
 ** TODO Set Emacs-location based on a list of hostnames
 *** TODO Add macros to make the file simpler
