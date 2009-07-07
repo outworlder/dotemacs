@@ -1,5 +1,5 @@
-* TODO list [16%]
-** TODO Show loading status for every module (preferably in color)
+* TODO list [25%]
+** DONE Show loading status for every module (preferably in color)
 ** TODO Use recentf if it is worthwhile
 *** DONE Investigate recentf
 *** TODO Research recentf and ido-mode integration
