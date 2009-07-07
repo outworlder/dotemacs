@@ -9,6 +9,7 @@
 (setq load-path (append (list "~/.emacs.children/support"
                               "~/.emacs.children/support/emacs-rails"
 			      "~/.emacs.children/support/magit"
+			      "~/.emacs.children/support/org-mode/lisp"
                               ) load-path ))
 
 (if (string-equal (system-name) "Arcturus")
@@ -34,6 +35,9 @@
 
 ;; Loading the svn script
 (require 'psvn)
+
+;; Overriding the default org-mode. 
+(require 'org)
 
 ;; This should not fail - bar cursor is now included.
 (require 'bar-cursor)
