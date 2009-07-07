@@ -1,10 +1,10 @@
-* TODO list [23%]
+* TODO list [30%]
 ** DONE Show loading status for every module (preferably in color)
 ** TODO Use recentf if it is worthwhile
 *** DONE Investigate recentf
 *** TODO Research recentf and ido-mode integration
 ** DONE Clean up load paths
-** TODO Rename vivid_chalk.el to a better name (probably theme.el)
+** DONE Rename vivid_chalk.el to a better name (probably theme.el)
 ** TODO Set Emacs-location based on a list of hostnames
 *** TODO Add macros to make the file simpler
 ** TODO Detect if Elpa is loaded or not and download it if necessary

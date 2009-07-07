@@ -76,7 +76,7 @@
                                "ido"
                                "dictionary"
                                "functions"
-                               "vivid_chalk"
+                               "theme"
 			       "git"
                                "keymaps"
 			       "twit"
