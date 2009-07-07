@@ -99,6 +99,8 @@
  '(newsticker-url-list-defaults (quote (("Emacs Wiki" "http://www.emacswiki.org/cgi-bin/wiki.pl?action=rss" nil 3600) ("slashdot" "http://slashdot.org/index.rss" nil 3600))))
  '(nxhtml-auto-mode-alist (quote (("\\.x?html?\\'" . nxhtml-mumamo) ("\\.x?htmlf?\\'" . nxhtml-mumamo) ("\\.php\\'" . nxhtml-mumamo) ("\\.phtml\\'" . nxhtml-mumamo) ("\\.jsp\\'" . jsp-nxhtml-mumamo) ("\\.asp\\'" . asp-nxhtml-mumamo) ("\\.djhtml\\'" . django-nxhtml-mumamo) ("\\.rhtml\\'" . eruby-nxhtml-mumamo) ("\\.html.erb\\'" . eruby-nxhtml-mumamo) ("\\.phps\\'" . smarty-nxhtml-mumamo) ("\\.epl\\'" . embperl-nxhtml-mumamo) (".lzx\\'" . laszlo-nxml-mumamo) ("\\.js\\'" . javascript-mode) ("\\.css\\'" . css-mode))))
  '(nxhtml-skip-welcome t)
+ '(org-enforce-todo-dependencies t)
+ '(org-modules (quote (org-bbdb org-bibtex org-gnus org-info org-jsinfo org-irc org-mew org-mhe org-rmail org-vm org-wl org-w3m org-mouse)))
  '(quack-default-program "csi")
  '(quack-dir "~/emacs.d/.quack")
  '(quack-emacsish-keywords-to-fontify (quote ("and" "begin" "begin0" "call-with-current-continuation" "call-with-input-file" "call-with-output-file" "call/cc" "case" "case-lambda" "class" "cond" "delay" "do" "else" "exit-handler" "field" "for-each" "if" "import" "inherit" "init-field" "interface" "lambda" "let" "let*" "let*-values" "let-values" "let-syntax" "let/ec" "letrec" "letrec-syntax" "map" "mixin" "opt-lambda" "or" "override" "protect" "provide" "public" "rename" "require" "require-for-syntax" "syntax" "syntax-case" "syntax-error" "syntax-rules" "unit/sig" "unless" "when" "with-syntax" "use")))
