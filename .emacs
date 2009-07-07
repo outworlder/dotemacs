@@ -1,10 +1,4 @@
 ;; .Emacs file
-;; -----------------------------------------------------------------------------
-;; TODO:
-;; -----------------------------------------------------------------------------
-;; * Create a modular .emacs file. Add the ability to enable and disable selected features
-;; Ex: Disable ruby support entirely. [PARTIAL - should provide more control and show load status]
-;; * Investigate Recentf
 
 (setq load-path (append (list "~/.emacs.children/support"
 			      "~/.emacs.children/support/color-theme-6.6.0"
@@ -12,10 +6,6 @@
 			      "~/.emacs.children/support/magit"
 			      "~/.emacs.children/support/org-mode/lisp"
                               ) load-path ))
-
-(if (string-equal (system-name) "Arcturus")
-    (setq emacs-location :home)
-  (setq emacs-location :atlantico))
 
 ;; -----------------------------------------------------------------------------
 ;; Loading the packaging system
@@ -32,76 +22,6 @@
 
 ;;-----------------------------------------------------------------------------
 
-(require 'cl)
-
-;; Loading the svn script
-(require 'psvn)
-
-;; Overriding the default org-mode. 
-(require 'org)
-
-;; This should not fail - bar cursor is now included.
-(require 'bar-cursor)
-;; Setting cursor to a bar one.
-(if (fboundp 'bar-cursor-mode)
-    (bar-cursor-mode))
-
-;; Displaying line numbers globally
-(require 'linum)
-(global-linum-mode t)
-
-(if (fboundp 'set-cursor-color)
-    (set-cursor-color "red"))
-
-;; Changing the flymake error face
-(require 'flymake)
-(set-face-background 'flymake-errline "coral4")
-
-;; Loading mode to track work being done
-(require 'worklog)
-
-;; TODO: Move this outside .emacs
-(require 'todochiku)
-
-(defun display-status (status)
-  (if status
-    (propertize "OK" 'face "flymake-warnline")
-    (propertize "ERROR" 'face "flymake-errline")))
-
-;; Loading the various .emacs files
-(setq dotemacs-children-prefix "~/.emacs.children/")
-(setq dotemacs-children-list '("elisp"
-                               "ruby"
-                               "options"
-                               "ido"
-                               "dictionary"
-                               "functions"
-                               "theme"
-			       "git"
-                               "keymaps"
-			       "twit"
-			       "scheme"))
-
-(setq dotemacs-loaded-ok t)
-(with-current-buffer (get-buffer-create "*Dotemacs Status*")
-  (toggle-read-only -1)
-  (insert "Dotemacs package load status: \n\n")
-  (mapc (lambda(x)
-	  (condition-case err-message
-	      (unwind-protect
-		  (load (concat dotemacs-children-prefix x ".el"))
-		(insert (format "[%s] Finished loading file: %s\n" (display-status t) x)))
-	    (error (begin
-		    (insert (format "[%s] Unable to load file: %s\n" (display-status nil) err-message))
-		    (setq dotemacs-loaded-ok nil))))) dotemacs-children-list)
-  (toggle-read-only t))
-
-(if (featurep 'todochiku)
-    (add-hook 'after-init-hook
-	      (lambda ()
-    (if dotemacs-loaded-ok
-	(todochiku-message "Dotemacs status" "All packages loaded successfully." (todochiku-icon 'package))
-      (todochiku-message "Dotemacs status" "Error loading some packages. Check the *Dotemacs status* buffer for more info." (todochiku-icon 'alert))))))
 
 ;;-----------------------------------------------------------------------------
 
@@ -163,3 +83,19 @@
 
 ;; enabling the server
 (server-start)
+
+(setq dotemacs-children-prefix "~/.emacs.children/")
+
+;;(require 'dotemacs)
+(load "~/.emacs.children/dotemacs.el")
+(dotemacs-load-children '("options"
+			  "ido"
+			  "elisp"
+			  "ruby"
+			  "dictionary"
+			  "functions"
+			  "theme"
+			  "git"
+			  "keymaps"
+			  "twit"
+			  "scheme") )
