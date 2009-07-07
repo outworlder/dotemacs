@@ -58,13 +58,6 @@
 ;; TODO: Move this outside .emacs
 (require 'todochiku)
 
-;; Loading VM mail reader
-;; TODO: Figure out how to (portably) enable VM.
-;; (autoload 'vm "~/vm" "Start VM on your primary inbox." t)
-;; (autoload 'vm-visit-folder "~/vm" "Start VM on an arbitrary folder." t)
-;; (autoload 'vm-mail "~/vm" "Send a mail message using VM." t)
-;; (autoload 'vm-submit-bug-report "~/vm" "Send a bug report about VM." t)
-
 ;; Loading the various .emacs files
 (setq dotemacs-children-prefix "~/.emacs.children/")
 (setq dotemacs-children-list '("elisp"
