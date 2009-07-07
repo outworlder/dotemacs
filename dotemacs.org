@@ -1,4 +1,4 @@
-* TODO list [25%]
+* TODO list [23%]
 ** DONE Show loading status for every module (preferably in color)
 ** TODO Use recentf if it is worthwhile
 *** DONE Investigate recentf
@@ -16,3 +16,4 @@
 ** TODO Automatically recompile children and their supporting files
 ** DONE Fix todo percent update bug with the org-mode included in stock emacs.
    This requires that the external org-mode be loaded by the .emacs file.
+** TODO Make todochiku select the binary according to the platform
