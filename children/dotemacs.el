@@ -4,7 +4,7 @@
 
 (require 'todochiku nil t)
 
-(defun display-status (status)
+(defun dotemacs-display-status (status)
   (if status
     (propertize "OK" 'face "flymake-warnline")
     (propertize "ERROR" 'face "flymake-errline")))
@@ -24,9 +24,9 @@
 	    (condition-case err-message
 		(unwind-protect
 		    (load (concat dotemacs-children-prefix x ".el"))
-		  (insert (format "[%s] Finished loading file: %s\n" (display-status t) x)))
+		  (insert (format "[%s] Finished loading file: %s\n" (dotemacs-display-status t) x)))
 	      (error (progn
-		      (insert (format "[%s] Unable to load file: %s - %s\n" (display-status nil) x err-message))
+		      (insert (format "[%s] Unable to load file: %s - %s\n" (dotemacs-display-status nil) x err-message))
 		      (setq dotemacs-loaded-ok nil))))) dotemacs-children-list)
     (toggle-read-only t))
   (if (featurep 'todochiku)

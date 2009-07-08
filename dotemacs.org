@@ -16,4 +16,8 @@
 ** TODO Automatically recompile children and their supporting files
 ** DONE Fix todo percent update bug with the org-mode included in stock emacs.
    This requires that the external org-mode be loaded by the .emacs file.
-** TODO Make todochiku select the binary according to the platform
+** DONE Make todochiku select the binary according to the platform
+** TODO Add feature-dependent settings to be set after everything is initialized, using after-init-hook
+** TODO Remove the list of load paths in the beggining of the file.
+*** TODO Create a function to add load paths
+*** TODO Move every load path to their respective modules

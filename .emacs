@@ -5,6 +5,7 @@
                               "~/.emacs.children/support/emacs-rails"
 			      "~/.emacs.children/support/magit"
 			      "~/.emacs.children/support/org-mode/lisp"
+			      "~/.emacs.children/support/vm-7.19"
                               ) load-path ))
 
 ;; -----------------------------------------------------------------------------
@@ -99,4 +100,5 @@
 			  "keymaps"
 			  "twit"
 			  "svn"
-			  "scheme") )
+			  "scheme"
+			  "gnus") )
