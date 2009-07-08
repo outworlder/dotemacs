@@ -9,6 +9,11 @@
 
 (setq dotemacs-loaded-ok t)
 
+(defun dotemacs-todochiku-notify ()
+  (if (not (null dotemacs-loaded-ok))
+    (todochiku-message "Dotemacs status" "All packages loaded successfully." (todochiku-icon 'package))
+    (todochiku-message "Dotemacs status" "Error loading some packages. Check the *Dotemacs status* buffer for more info." (todochiku-icon 'alert))))
+
 (defun dotemacs-load-children (dotemacs-children-list)
   (with-current-buffer (get-buffer-create "*Dotemacs Status*")
     (toggle-read-only -1)
@@ -23,8 +28,4 @@
 		      (setq dotemacs-loaded-ok nil))))) dotemacs-children-list)
     (toggle-read-only t))
   (if (featurep 'todochiku)
-      (add-hook 'after-init-hook
-		(lambda ()
-		  (if dotemacs-loaded-ok
-		      (todochiku-message "Dotemacs status" "All packages loaded successfully." (todochiku-icon 'package))
-		    (todochiku-message "Dotemacs status" "Error loading some packages. Check the *Dotemacs status* buffer for more info." (todochiku-icon 'alert)))))))
+      (add-hook 'after-init-hook 'dotemacs-todochiku-notify)))
