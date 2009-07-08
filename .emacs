@@ -98,4 +98,5 @@
 			  "git"
 			  "keymaps"
 			  "twit"
+			  "svn"
 			  "scheme") )

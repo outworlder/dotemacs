@@ -1,11 +1,13 @@
 (provide 'dotemacs)
 
+(require 'cl)
+
+(require 'todochiku nil t)
+
 (defun display-status (status)
   (if status
     (propertize "OK" 'face "flymake-warnline")
     (propertize "ERROR" 'face "flymake-errline")))
-
-;; Loading the various .emacs files
 
 (setq dotemacs-loaded-ok t)
 

@@ -105,8 +105,3 @@
 
 ;;(set-face-font 'svn-status-filename-face (read-face-font 'fixed-pitch)) ;;TODO
 ;;(set-face-font 'svn-status-filename-face "-unknown-DejaVu Sans Mono-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
-;; Svn-status hook, changing the default font
-(if (boundp 'buffer-face-set)
-    (add-hook 'svn-status-mode-hook
-              (lambda ()
-                (buffer-face-set 'fixed-pitch))))

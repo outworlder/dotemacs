@@ -1,9 +1,3 @@
-
-(require 'cl)
-
-;; Loading the svn script
-(require 'psvn)
-
 ;; Overriding the default org-mode. 
 (require 'org)
 
@@ -23,9 +17,6 @@
 ;; Changing the flymake error face
 (require 'flymake)
 (set-face-background 'flymake-errline "coral4")
-
-;; TODO: Move this outside .emacs
-(require 'todochiku)
 
 ;; Setting the default to Unicode
 (prefer-coding-system 'utf-8)
