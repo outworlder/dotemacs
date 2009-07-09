@@ -7,6 +7,7 @@
 			      "~/.emacs.children/support/org-mode/lisp"
 			      "~/.emacs.children/support/vm-7.19"
 			      "~/.emacs.children/support/bbdb-2.35/lisp"
+			      "~/.emacs.children/support/emms/lisp"
                               ) load-path ))
 
 ;; -----------------------------------------------------------------------------

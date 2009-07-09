@@ -10,3 +10,6 @@
 [submodule "children/support/org-mode"]
 	path = children/support/org-mode
 	url = git://repo.or.cz/org-mode.git
+[submodule "children/support/emms"]
+	path = children/support/emms
+	url = git://git.sv.gnu.org/emms.git
