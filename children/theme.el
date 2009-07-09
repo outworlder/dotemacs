@@ -86,6 +86,19 @@
 (setq st-smaller-font "-unknown-DejaVu Sans-bold-normal-normal-*-12-*-*-*-*-0-iso10646-1")
 (setq st-svn-status-font "-unknown-DejaVu Sans Mono-bold-normal-normal-*-*-*-*-*-*-0-iso10646-1")
 
+;; (defun dotemacs-try-fonts (font-list &optional funct)
+;;   ;; Try every font in the list until one succeeds
+;;   (let ((try-font
+;; 	 (lambda (working-font-list)
+;; 	   (condition-case error
+;; 	       (let ((font-function (or funct 'set-default-font)))
+;; 		 (unless (null (working-font-list))
+;; 		   ((funcall font-function (cadr working-font-list)))))
+;; 	     (error (funcall try-font (cdr working-font-list)))))))))
+
+;; (dotemacs-try-fonts '("-unknown-DejaVu Sans Mono-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1"
+;; 		      "-apple-monaco-medium-r-normal--16-140-72-72-m-140-mac-roman"))
+
 (set-default-font st-default-font)
 ;; Setting font for new frames
 (add-to-list 'default-frame-alist `(font . ,st-default-font))
