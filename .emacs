@@ -6,6 +6,7 @@
 			      "~/.emacs.children/support/magit"
 			      "~/.emacs.children/support/org-mode/lisp"
 			      "~/.emacs.children/support/vm-7.19"
+			      "~/.emacs.children/support/bbdb-2.35"
                               ) load-path ))
 
 ;; -----------------------------------------------------------------------------
