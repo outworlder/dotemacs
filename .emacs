@@ -63,7 +63,6 @@
  '(speedbar-use-images t)
  '(todochiku-icons-directory "~/.emacs.children/support/todochiku-icons")
  '(twit-follow-idle-interval 5)
- '(twit-pass "necromancer")
  '(twit-show-user-images t)
  '(twit-user "spedrosa@gmail.com")
  '(twit-user-image-dir "~/.emacs.twit/images"))
@@ -102,3 +101,5 @@
 			  "svn"
 			  "scheme"
 			  "gnus") )
+
+(setq debug-on-error nil)
