@@ -20,7 +20,7 @@
 (set-key "<C-f9>" 'find-file-in-project)
 (set-key "<C-f5>" 'jira-show-assigned-me)
 
-(set-key "<C-f10>" 'find-grep-dired)
+(set-key "<C-f10>" 'vc-git-grep)
     
 (set-key "<C-f7>" 'count-todos-in-buffer)
 (set-key "C-M-g" 'ido-goto-symbol)
