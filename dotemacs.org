@@ -1,4 +1,4 @@
-* TODO list [46%]
+* TODO list [25%]
 ** DONE Show loading status for every module (preferably in color)
 ** TODO Use recentf if it is worthwhile
 *** DONE Investigate recentf
@@ -8,6 +8,7 @@
 ** TODO Set Emacs-location based on a list of hostnames
 *** TODO Add macros to make the file simpler
 ** TODO Detect if Elpa is loaded or not and download it if necessary
+*** TODO Do it for AutoInstall first
 ** TODO Detect if the desired fonts are available in the system before setting them
 ** TODO Make the linum-mode not display line numbers in certain buffers (such as the terminal one). 
 *** TODO Also, do not display them in read-only buffers.
@@ -21,3 +22,37 @@
 ** TODO Remove the list of load paths in the beggining of the file.
 *** TODO Create a function to add load paths
 *** TODO Move every load path to their respective modules
+** TODO Integrate DOTEMACS and some project tool, so that some modules will only be loaded when the project is opened
+*** TODO Decide on a project tool
+** TODO Add support for fetching modules automatically (using ELPA and AutoInstall)
+** TODO Smarter way of specifying keybindings. Features needed:
+*** Only set package-dependent keys if the package was loaded successfully
+*** Do not clobber existing keybindings by default
+** TODO Add AutoInstall
+*** TODO Install Icicles using AutoInstall
+*** TODO Replace IDO-Mode with Icicles
+** TODO Integrate GMail and Gnus
+** TODO Create a Pidgin client using Pidgin's DBus interface
+** TODO Add Rhythmbox support to EMMS
+** TODO Add a way to connect to the VPN automatically usign NetworkManager's DBus interface
+** TODO Retrieve the list of issues from Bugzilla and display them in a buffer, with clickable links
+** TODO Make Gnus check for mail periodically
+** TODO Fix twit.el avatar display bug
+** TODO Add links to files to the Dotemacs Status bufffer
+
+
+Ruby-specific features
+* TODO [0%]
+** TODO Fix eruby-hxtml-mumamo highlight bugs
+*** TODO First, verify if it would be better to ditch this mode and use HTML-mode with mumamo
+** TODO Start the server with VC's environment from Emacs
+** TODO Documentation tasks [0/3]
+*** TODO Add support for rdoc syntax highlight in ruby-mode
+*** TODO Add rdoc preview (using W3)
+*** TODO Apidock integration
+** TODO Ruby semantic completion [0/3]
+   (This can be done with either Semantic Bovinator or (if it exists) a library similar to Rope, for Python)
+*** TODO Add CompletionUI/CompanyMode/AutoComplete
+*** TODO Integrate the above with the semantic backend
+*** TODO Fix snippet support
+** TODO Cleanup unused Rails-mode functionality
