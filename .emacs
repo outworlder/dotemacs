@@ -53,6 +53,8 @@
  '(erc-track-exclude-types (quote ("JOIN" "NICK" "PART" "QUIT" "333" "353")))
  '(erc-user-full-name "Stephen Pedrosa Eilert")
  '(highline-ignore-regexp "Faces\\|Colors\\|Minibuf\\|\\*tip\\*\\|\\*.*\\*")
+ '(imenu-eager-completion-buffer t)
+ '(imenu-max-item-length nil)
  '(initial-buffer-choice t)
  '(js2-highlight-level 3)
  '(newsticker-url-list (quote (("Smspillaz" "http://smspillaz.wordpress.com/feed/" nil nil nil))))
