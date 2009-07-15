@@ -23,8 +23,17 @@
 (set-key "<C-f10>" 'vc-git-grep)
     
 (set-key "<C-f7>" 'count-todos-in-buffer)
-(set-key "C-M-g" 'ido-goto-symbol)
+(if nil
+    (progn
+      (set-key "C-M-g" 'ido-goto-symbol)
+      (global-set-key "\M-x" 'ido-execute)
+      (set-key "<menu>" 'ido-execute)))
 
-(global-set-key "\M-x" 'ido-execute)
-(set-key "<menu>" 'ido-execute)
 (global-set-key (kbd "M-/") 'hippie-expand)
+
+(if (featurep 'anything)
+    (progn
+      (set-key "S-s-SPC" 'anything)
+      (set-key "C-M-g" 'anything-imenu)))
+
+

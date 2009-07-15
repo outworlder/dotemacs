@@ -4,6 +4,9 @@
 
 (require 'todochiku nil t)
 
+(require 'auto-install)
+(setq auto-install-directory "~/.emacs.children/support/auto-install/")
+
 (defun dotemacs-display-status (status)
   (if status
     (propertize "OK" 'face "flymake-warnline")
