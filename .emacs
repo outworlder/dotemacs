@@ -104,6 +104,7 @@
 			  "svn"
 			  "scheme"
 			  "gnus"
-			  "bbdb") )
+			  "bbdb"
+			  "w3") )
 
 (setq debug-on-error nil)

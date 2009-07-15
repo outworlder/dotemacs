@@ -13,3 +13,6 @@
 [submodule "children/support/emms"]
 	path = children/support/emms
 	url = git://git.sv.gnu.org/emms.git
+[submodule "children/support/w3"]
+	path = children/support/w3
+	url = git://git.sv.gnu.org/w3.git
