@@ -1,5 +1,15 @@
+;;; .emacs --- .Emacs main file
 ;; .Emacs file
 
+
+;;; Commentary:
+;; 
+
+
+;;; History:
+;; 
+
+;;; Code:
 (setq load-path (append (list "~/.emacs.children/support"
 			      "~/.emacs.children/support/color-theme-6.6.0"
                               "~/.emacs.children/support/emacs-rails"
@@ -9,7 +19,7 @@
 			      "~/.emacs.children/support/bbdb-2.35/lisp"
 			      "~/.emacs.children/support/emms/lisp"
 			      "~/.emacs.children/support/auto-install"
-                              ) load-path )) 
+                              ) load-path ))
 
 ;; -----------------------------------------------------------------------------
 ;; Loading the packaging system
@@ -110,3 +120,7 @@
 			  "anything") )
 
 (setq debug-on-error nil)
+
+(provide '.emacs)
+
+;;; .emacs ends here
