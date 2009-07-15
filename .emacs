@@ -105,6 +105,7 @@
 			  "scheme"
 			  "gnus"
 			  "bbdb"
-			  "w3") )
+			  "w3"
+			  "anything") )
 
 (setq debug-on-error nil)
