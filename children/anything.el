@@ -16,6 +16,9 @@
 ;; ;; Bind C-o to complete shell history
 (anything-complete-shell-history-setup-key "\C-o")
 
+;; (defun anything-append (stuff)
+;;   (append 
+
 
 (require 'lacarte t)
 
