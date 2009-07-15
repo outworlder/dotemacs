@@ -111,11 +111,19 @@
              (setq looping nil)))
     (list part1 part2)))
 
+;; (defun find-file-in-project (file)
+;;   (interactive (list (if (functionp 'ido-completing-read)
+;;                          (ido-completing-read "Find file in project: " (mapcar 'car (project-files)))
+;;                          (completing-read "Find file in project: " (mapcar 'car (project-files))))))
+;;   (find-file (cdr (assoc file project-files-table))))
+
+
 (defun find-file-in-project (file)
-  (interactive (list (if (functionp 'ido-completing-read)
+  (interactive (list (if nil
                          (ido-completing-read "Find file in project: " (mapcar 'car (project-files)))
                          (completing-read "Find file in project: " (mapcar 'car (project-files))))))
   (find-file (cdr (assoc file project-files-table))))
+
 
 (defun rails-root (&optional dir)
   (or dir (setq dir default-directory))
