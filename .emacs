@@ -50,6 +50,7 @@
  '(emms-mode-line-titlebar-function (quote emms-mode-line-playlist-current))
  '(erc-join-buffer (quote bury))
  '(erc-nick "outworlder")
+ '(erc-track-enable-keybindings t)
  '(erc-track-exclude-types (quote ("JOIN" "NICK" "PART" "QUIT" "333" "353")))
  '(erc-user-full-name "Stephen Pedrosa Eilert")
  '(highline-ignore-regexp "Faces\\|Colors\\|Minibuf\\|\\*tip\\*\\|\\*.*\\*")
