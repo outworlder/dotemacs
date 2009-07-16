@@ -113,14 +113,14 @@
 			  "functions"
 			  "theme"
 			  "git"
-			  "keymaps"
 			  "twit"
 			  "svn"
 			  "scheme"
 			  "gnus"
 			  "bbdb"
 			  "w3"
-			  "anything") )
+			  "anything"
+			  "keymaps") )
 
 (setq debug-on-error nil)
 
