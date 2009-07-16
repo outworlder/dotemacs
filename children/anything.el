@@ -20,7 +20,7 @@
 ;;   (append 
 
 
-(require 'lacarte t)
+(require 'lacarte)
 
 (if (featurep 'lacarte)
     (progn
