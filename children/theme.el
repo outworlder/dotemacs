@@ -78,7 +78,7 @@
 ;; Setting the default font
 
 ;; (setq st-default-font "-apple-monaco-medium-r-normal--16-140-72-72-m-140-mac-roman")
-;; (setq st-smaller-font "-apple-monaco-medium-r-normal--14-140-72-72-m-140-mac-roman")
+;; (setq st-smaller-font "-apple-monaco-medium-r-normal--12-140-72-72-m-140-mac-roman")
 ;;(setq st-default-font "-apple-monaco-medium-r-normal--14-140-72-72-m-140-mac-roman")
 
 ;; The fonts below are only for Unix machines.
