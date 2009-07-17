@@ -22,3 +22,8 @@
     (message "Converting Atom to RSS... done")))
 
 (ad-activate 'mm-url-insert)
+
+;; Check mail periodically
+
+(gnus-demon-add-handler 'gnus-group-get-new-news 3 t)
+(gnus-demon-init)
