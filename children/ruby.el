@@ -1,4 +1,10 @@
 
+(require 'ruby-mode)
+(require 'inf-ruby)
+(add-hook 'ruby-mode-hook
+          (lambda()
+            (inf-ruby-keys)))
+
 ;; Loading nXHTML
 (load "~/.emacs.d/nxhtml/autostart")
 (require 'nxhtml-mumamo)
@@ -7,8 +13,8 @@
 (require 'speedbar)
 
 ;; Loading emacs rails
-(require 'snippet)
-(require 'ruby-mode)
+;; (require 'snippet)
+;; (require 'ruby-mode)
 (require 'find-recursive)
 
 (defface erb-face
@@ -36,19 +42,19 @@
 
 ;; (set-face-background 'mumamo-background-chunk-submode "midnight blue")
 
-(require 'rails)
-(require 'rails-view-minor-mode)
+;; (require 'rails)
+;; (require 'rails-view-minor-mode)
 
 (defun nxml-rails-mode ()
   (interactive)
-  (eruby-nxhtml-mumamo)
-  (rails-minor-mode t)
-  (rails-view-minor-mode t))
+  (eruby-nxhtml-mumamo))
 
 ;; Changing rails' filenames list to use nxml-mode instead of html-mode for views.
 ;; TODO: This works. However, the rails mode is not activated. The problem might be a hook
-(setcdr
-  (assoc "\\.rhtml$" auto-mode-alist) 'nxml-rails-mode)
+(if (assoc "\\.rhtml$" auto-mode-alist)
+    (setcdr
+     (assoc "\\.rhtml$" auto-mode-alist) 'nxml-rails-mode)
+  (add-to-list 'auto-mode-alist '("\\.rhtml$" . nxml-rails-mode)))
 
 ;; ;; Converting eruby-nxhtml-mumamo to nxml-rails-mode
 (mapc (lambda(element)
@@ -65,10 +71,6 @@
           '(lambda ()
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
-(require 'ruby-mode)
-(add-hook 'ruby-mode-hook
-          (lambda()
-            (inf-ruby-keys)))
 
 ;;(add-hook 'ruby-mode-hook 'turn-on-font-lock)
 
