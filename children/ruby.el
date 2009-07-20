@@ -73,6 +73,11 @@
 
 
 ;;(add-hook 'ruby-mode-hook 'turn-on-font-lock)
+(add-hook 'ruby-mode-hook
+	  (lambda ()
+	    (define-key ruby-mode-map "\C-m" 'newline-and-indent)
+            (require 'ruby-electric)
+            (ruby-electric-mode t)))
 
 ;; TODO: Only check this for .rb files.
 ;; Warns if we are saving a file with a debugger statement
