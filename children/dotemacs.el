@@ -30,6 +30,7 @@
 		  (insert (format "[%s] Finished loading file: %s\n" (dotemacs-display-status t) x)))
 	      (error (progn
 		      (insert (format "[%s] Unable to load file: %s - %s\n" (dotemacs-display-status nil) x err-message))
+		      (if debug-on-error (debug))
 		      (setq dotemacs-loaded-ok nil))))) dotemacs-children-list)
     (toggle-read-only t))
   (if (featurep 'todochiku)
