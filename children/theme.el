@@ -27,7 +27,7 @@
      (font-lock-comment-delimiter-face ((t (:foreground "#9933cc"))))
      (font-lock-constant-face ((t (:foreground "#339999"))))
      (font-lock-function-name-face ((t (:foreground "#ffcc00"))))
-     (font-lock-keyword-face ((t (:foreground "#ff6600"))))
+     (font-lock-keyword-face ((t (:bold t  :foreground "#ff6600"))))
      (font-lock-preprocessor-face ((t (:foreground "#aaffff"))))
      (font-lock-reference-face ((t (:foreground "LightSteelBlue"))))
      (font-lock-string-face ((t (:foreground "#66FF00"))))
@@ -116,10 +116,10 @@
 ;; (set-face-font 'minibuffer-prompt st-smaller-font)
 ;; (set-face-foreground 'mode-line "White")
 
-(if (featurep 'ido)
-    (progn
-      (set-face-font 'ido-first-match st-default-font)
-      (set-face-foreground 'ido-first-match "Red")))
+;; (if (featurep 'ido)
+;;     (progn
+;;       (set-face-font 'ido-first-match st-default-font)
+;;       (set-face-foreground 'ido-first-match "Red")))
 
 ;;(set-face-font 'svn-status-filename-face (read-face-font 'fixed-pitch)) ;;TODO
 ;;(set-face-font 'svn-status-filename-face "-unknown-DejaVu Sans Mono-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
