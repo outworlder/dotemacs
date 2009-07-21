@@ -91,13 +91,16 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(default ((t (:height 105 :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(highlight-current-line-face ((t (:background "darkcyan"))))
  '(magit-branch ((t (:inherit magit-header :background "blue" :slant italic :weight bold))))
  '(magit-diff-hunk-header ((t (:inherit magit-header :background "darkgreen"))))
  '(magit-header ((t (:background "darkred"))))
+ '(mode-line ((t (:background "Blue" :foreground "black" :height 0.9 :family "DejaVu Sans"))))
+ '(mode-line-buffer-id ((t (:foreground "black" :weight bold))))
  '(quack-pltish-comment-face ((((class color) (background light)) (:foreground "red4"))))
  '(quack-pltish-defn-face ((t (:foreground "white" :slant italic :weight bold))))
- '(twit-message-face ((default (:inherit nil :height 1.1 :family "sans")) (nil nil))))
+ '(twit-message-face ((default (:height 1.1 :family "sans")) (nil nil))))
 
 ;;-----------------------------------------------------------------------------
 

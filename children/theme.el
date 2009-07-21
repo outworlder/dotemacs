@@ -1,6 +1,9 @@
 ;; Loading color themes
 (require 'color-theme)
 
+(require 'highline)
+(highline-mode-on)
+
 ;;-----------------------------------------------------------------------------
 ;; Custom color theme (Based on Textmate's Vibrant Ink
 ;;-----------------------------------------------------------------------------
@@ -16,7 +19,6 @@
       (foreground-color . "white")
       (list-matching-lines-face . bold)
       (view-highlight-face . highlight))
-     (default ((t (nil))))
      (bold ((t (:bold t))))
      (bold-italic ((t (:italic t :bold t))))
      (fringe ((t (:background "black"))))
@@ -35,6 +37,7 @@
      (font-lock-warning-face ((t (:bold t :foreground "Pink"))))
      (paren-face-match-light ((t (:background "#222222"))))
      (highlight ((t (:background "darkolivegreen"))))
+     (highline ((t (:background "#222222"))))
      (italic ((t (:italic t))))
      (modeline ((t (:background "#a5baf1" :foreground "black"))))
      (modeline-buffer-id ((t (:background "#a5baf1" :foreground
@@ -58,11 +61,9 @@
 (color-theme-vivid-chalk)
 
 ;;(set-face-background 'mode-line "DarkRed")
-(set-face-background 'mode-line "#222288")
+;;(set-face-background 'mode-line "#222288")
 
-(require 'highline)
 (set-face-background 'highline-face "#222222")
-(highline-mode-on)
 
 ;; Changing colors
 ;(color-theme-zenburn)
@@ -82,9 +83,13 @@
 ;;(setq st-default-font "-apple-monaco-medium-r-normal--14-140-72-72-m-140-mac-roman")
 
 ;; The fonts below are only for Unix machines.
-(setq st-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-*-0-iso10646-1")
-(setq st-smaller-font "-unknown-DejaVu Sans-normal-normal-normal-*-12-*-*-*-*-0-iso10646-1")
+;; (setq st-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-*-0-iso10646-1")
+ ;; (setq st-smaller-font "-unknown-DejaVu Sans-normal-normal-normal-*-12-*-*-*-*-0-iso10646-1")
 (setq st-svn-status-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1")
+;; (setq st-default-font "-unknown-Inconsolata-medium-*-*-*-16-*-*-*-*-0-iso10646-1")
+
+(setq st-default-font "Inconsolata-12")
+(setq st-smaller-font "Verdana-10")
 
 ;; (defun dotemacs-try-fonts (font-list &optional funct)
 ;;   ;; Try every font in the list until one succeeds
@@ -99,17 +104,17 @@
 ;; (dotemacs-try-fonts '("-unknown-DejaVu Sans Mono-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1"
 ;; 		      "-apple-monaco-medium-r-normal--16-140-72-72-m-140-mac-roman"))
 
-(set-default-font st-default-font)
-;; Setting font for new frames
-(add-to-list 'default-frame-alist `(font . ,st-default-font))
+;; (set-default-font st-default-font)
+;; ;; Setting font for new frames
+;; (add-to-list 'default-frame-alist `(font . ,st-default-font))
 
-;; Using a smaller font for the modeline
-(set-face-font 'mode-line st-smaller-font)
-(set-face-font 'mode-line-inactive st-smaller-font)
-;;(set-face-font 'modeline-mousable "-unknown-DejaVu Sans-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
-(set-face-font 'modeline-mousable st-smaller-font)
-(set-face-font 'minibuffer-prompt st-smaller-font)
-(set-face-foreground 'mode-line "White")
+;; ;; Using a smaller font for the modeline
+;; (set-face-font 'mode-line st-smaller-font)
+;; (set-face-font 'mode-line-inactive st-smaller-font)
+;; ;;(set-face-font 'modeline-mousable "-unknown-DejaVu Sans-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
+;; (set-face-font 'modeline-mousable st-smaller-font)
+;; (set-face-font 'minibuffer-prompt st-smaller-font)
+;; (set-face-foreground 'mode-line "White")
 
 (if (featurep 'ido)
     (progn
