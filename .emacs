@@ -24,6 +24,7 @@
 			      "~/.emacs.children/support/auto-install"
                               ) load-path ))
 
+
 ;; -----------------------------------------------------------------------------
 ;; Loading the packaging system
 
@@ -47,7 +48,13 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(auto-completion-delay 0.5)
  '(bbdb-complete-name-allow-cycling t)
+ '(completion-auto-show nil)
+ '(completion-auto-show-delay 1)
+ '(completion-use-echo t)
+ '(completion-use-menu nil)
+ '(completion-use-popup-frame nil)
  '(ecb-options-version "2.32")
  '(emms-mode-line-mode-line-function nil)
  '(emms-mode-line-titlebar-function (quote emms-mode-line-playlist-current))
@@ -61,6 +68,8 @@
  '(imenu-max-item-length nil)
  '(initial-buffer-choice t)
  '(js2-highlight-level 3)
+ '(linum-delay t)
+ '(linum-format "%4d")
  '(newsticker-url-list (quote (("Smspillaz" "http://smspillaz.wordpress.com/feed/" nil nil nil))))
  '(newsticker-url-list-defaults (quote (("Emacs Wiki" "http://www.emacswiki.org/cgi-bin/wiki.pl?action=rss" nil 3600) ("slashdot" "http://slashdot.org/index.rss" nil 3600))))
  '(nxhtml-auto-mode-alist (quote (("\\.x?html?\\'" . nxhtml-mumamo) ("\\.x?htmlf?\\'" . nxhtml-mumamo) ("\\.php\\'" . nxhtml-mumamo) ("\\.phtml\\'" . nxhtml-mumamo) ("\\.jsp\\'" . jsp-nxhtml-mumamo) ("\\.asp\\'" . asp-nxhtml-mumamo) ("\\.djhtml\\'" . django-nxhtml-mumamo) ("\\.rhtml\\'" . eruby-nxhtml-mumamo) ("\\.html.erb\\'" . eruby-nxhtml-mumamo) ("\\.phps\\'" . smarty-nxhtml-mumamo) ("\\.epl\\'" . embperl-nxhtml-mumamo) (".lzx\\'" . laszlo-nxml-mumamo) ("\\.js\\'" . javascript-mode) ("\\.css\\'" . css-mode))))
@@ -93,11 +102,15 @@
   ;; If there is more than one, they won't work right.
  '(default ((t (:height 105 :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(highlight-current-line-face ((t (:background "darkcyan"))))
+ '(linum ((t (:inherit (shadow default) :background "gray15"))))
  '(magit-branch ((t (:inherit magit-header :background "blue" :slant italic :weight bold))))
  '(magit-diff-hunk-header ((t (:inherit magit-header :background "darkgreen"))))
  '(magit-header ((t (:background "darkred"))))
+ '(message-header-subject ((t (:foreground "blue2" :weight bold))))
+ '(message-header-to ((t (:foreground "blue3" :weight bold))))
  '(mode-line ((t (:background "Blue" :foreground "black" :height 0.9 :family "DejaVu Sans"))))
  '(mode-line-buffer-id ((t (:foreground "black" :weight bold))))
+ '(mumamo-background-chunk-submode ((t (:background "#222233"))))
  '(quack-pltish-comment-face ((((class color) (background light)) (:foreground "red4"))))
  '(quack-pltish-defn-face ((t (:foreground "white" :slant italic :weight bold))))
  '(twit-message-face ((default (:height 1.1 :family "sans")) (nil nil))))
@@ -112,6 +125,7 @@
 ;;(require 'dotemacs)
 (load "~/.emacs.children/dotemacs.el")
 (dotemacs-load-children '("options"
+			  "recentf"
 ;;			  "ido"
 			  "elisp"
 			  "ruby"
@@ -126,6 +140,7 @@
 			  "bbdb"
 			  "w3"
 			  "anything"
+			  "company"
 			  "keymaps") )
 
 (setq debug-on-error nil)

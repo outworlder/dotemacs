@@ -1,9 +1,15 @@
-
 (require 'ruby-mode)
+(require 'ruby-electric)
 (require 'inf-ruby)
 (add-hook 'ruby-mode-hook
           (lambda()
             (inf-ruby-keys)))
+
+(defun ruby-insert-end ()
+  (interactive)
+  (insert "end")
+  (ruby-indent-line t)
+  (end-of-line))
 
 ;; Loading nXHTML
 (load "~/.emacs.d/nxhtml/autostart")
@@ -30,7 +36,7 @@
 ;;(set-face-background 'mumamo-background-chunk-submode "midnight blue")
 ;; Lighter shade of blue for the mumamo chunks (used in nxhtml-mode)
 ;;(set-face-background 'mumamo-background-chunk-submode "#111133")
-(set-face-background 'mumamo-background-chunk-submode "#111166")
+;;(set-face-background 'mumamo-background-chunk-submode "#111166")
 
 (setq
  nxhtml-global-minor-mode t
