@@ -101,6 +101,7 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(default ((t (:height 105 :foundry "unknown" :family "DejaVu Sans Mono"))))
+ '(cursor ((t (:background "red"))))
  '(highlight-current-line-face ((t (:background "darkcyan"))))
  '(linum ((t (:inherit (shadow default) :background "gray15"))))
  '(magit-branch ((t (:inherit magit-header :background "blue" :slant italic :weight bold))))
