@@ -44,8 +44,8 @@
 
 ;; Removing the useless toolbar
 (tool-bar-mode 0)
-;; Removing the menu bar as well
-(menu-bar-mode 0)
+;; ;; Removing the menu bar as well
+;; (menu-bar-mode 0)
 
 (put 'scroll-left 'disabled nil)
 (put 'scroll-right 'disabled nil)
