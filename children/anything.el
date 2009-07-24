@@ -32,3 +32,8 @@
 	(action . call-interactively)))))
 
 
+;; Hackish bug fix:
+;; For some reason, anything (when used to find files) will not correctly change directories
+;; But it will if the ido-find-file function is used. So this "fixes" it.
+(if (and (featurep 'ido) (featurep 'anything))
+    (set-key "C-x C-f" 'ido-find-file))
