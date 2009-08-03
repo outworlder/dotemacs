@@ -149,6 +149,8 @@
 			  "w3"
 			  "anything"
 			  "company"
+			  "time_tracking"
+			  "jdee"
 			  "keymaps") )
 
 (setq debug-on-error nil)
