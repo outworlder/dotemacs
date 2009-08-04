@@ -58,7 +58,8 @@
      (underline ((t (:underline t))))
      (minibuffer-prompt ((t (:bold t :foreground "#ff6600")))))))
 
-(color-theme-vivid-chalk)
+;;(color-theme-vivid-chalk)
+(color-theme-charcoal-black)
 
 ;;(set-face-background 'mode-line "DarkRed")
 ;;(set-face-background 'mode-line "#222288")
