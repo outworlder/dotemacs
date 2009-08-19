@@ -23,6 +23,9 @@
 
 (ad-activate 'mm-url-insert)
 
+;; Outlook import
+(require 'diary-outlook)
+
 ;; Check mail periodically
 
 (gnus-demon-add-handler 'gnus-group-get-new-news 3 t)

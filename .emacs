@@ -11,19 +11,8 @@
 
 ;;; Code:
 
+
 (require 'cl)
-
-(setq load-path (append (list "~/.emacs.children/support"
-			      "~/.emacs.children/support/color-theme-6.6.0"
-                              ;; "~/.emacs.children/support/emacs-rails"
-			      "~/.emacs.children/support/magit"
-			      "~/.emacs.children/support/org-mode/lisp"
-			      "~/.emacs.children/support/vm-7.19"
-			      "~/.emacs.children/support/bbdb-2.35/lisp"
-			      "~/.emacs.children/support/emms/lisp"
-			      "~/.emacs.children/support/auto-install"
-                              ) load-path ))
-
 
 ;; -----------------------------------------------------------------------------
 ;; Loading the packaging system
@@ -40,6 +29,47 @@
 
 ;;-----------------------------------------------------------------------------
 
+(setq load-path (append (list "~/.emacs.children/support"
+			      "~/.emacs.children/support/color-theme-6.6.0"
+                              ;; "~/.emacs.children/support/emacs-rails"
+			      "~/.emacs.children/support/magit"
+			      "~/.emacs.children/support/org-mode/lisp"
+			      "~/.emacs.children/support/vm-7.19"
+			      "~/.emacs.children/support/bbdb-2.35/lisp"
+			      "~/.emacs.children/support/emms/lisp"
+			      "~/.emacs.children/support/auto-install"
+                              ) load-path ))
+
+
+;; enabling the server
+(server-start)
+
+(setq dotemacs-children-prefix "~/.emacs.children/")
+
+;;(require 'dotemacs)
+(load "~/.emacs.children/dotemacs.el")
+(dotemacs-load-children '("options"
+			  "theme"
+			  "recentf"
+;;			  "ido"
+			  "elisp"
+			  ;; "ruby"
+			  "dictionary"
+			  "functions"
+			  "git"
+			  "twit"
+			  "svn"
+			  "scheme"
+			  "gnus"
+			  "bbdb"
+			  "w3"
+			  "anything"
+			  "company"
+			  "time_tracking"
+			  "jdee"
+			  "keymaps") )
+
+(setq debug-on-error nil)
 
 ;;-----------------------------------------------------------------------------
 
@@ -67,6 +97,7 @@
  '(erc-track-exclude-types (quote ("JOIN" "NICK" "PART" "QUIT" "333" "353")))
  '(erc-user-full-name "Stephen Pedrosa Eilert")
  '(highline-ignore-regexp "Faces\\|Colors\\|Minibuf\\|\\*tip\\*\\|\\*.*\\*")
+ '(highline-priority 9999)
  '(ido-enable-flex-matching t)
  '(imenu-eager-completion-buffer t)
  '(imenu-max-item-length nil)
@@ -74,6 +105,19 @@
  '(js2-highlight-level 3)
  '(linum-delay t)
  '(linum-format "%4d ")
+ '(mode-line-format (quote ("%e" #("-" 0 1 (help-echo "mouse-1: Select (drag to resize)
+mouse-2: Make current window occupy the whole frame
+mouse-3: Remove current window from display")) mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification #("   " 0 3 (help-echo "mouse-1: Select (drag to resize)
+mouse-2: Make current window occupy the whole frame
+mouse-3: Remove current window from display")) mode-line-position (vc-mode vc-mode) #("  " 0 2 (help-echo "mouse-1: Select (drag to resize)
+mouse-2: Make current window occupy the whole frame
+mouse-3: Remove current window from display")) mode-line-modes (which-func-mode ("" which-func-format #("--" 0 2 (help-echo "mouse-1: Select (drag to resize)
+mouse-2: Make current window occupy the whole frame
+mouse-3: Remove current window from display")))) (global-mode-string (#("--" 0 2 (help-echo "mouse-1: Select (drag to resize)
+mouse-2: Make current window occupy the whole frame
+mouse-3: Remove current window from display")) global-mode-string)) #("  " 0 2 (help-echo "mouse-1: Select (drag to resize)
+mouse-2: Make current window occupy the whole frame
+mouse-3: Remove current window from display")))))
  '(newsticker-url-list (quote (("Smspillaz" "http://smspillaz.wordpress.com/feed/" nil nil nil))))
  '(newsticker-url-list-defaults (quote (("Emacs Wiki" "http://www.emacswiki.org/cgi-bin/wiki.pl?action=rss" nil 3600) ("slashdot" "http://slashdot.org/index.rss" nil 3600))))
  '(nxhtml-auto-mode-alist (quote (("\\.x?html?\\'" . nxhtml-mumamo) ("\\.x?htmlf?\\'" . nxhtml-mumamo) ("\\.php\\'" . nxhtml-mumamo) ("\\.phtml\\'" . nxhtml-mumamo) ("\\.jsp\\'" . jsp-nxhtml-mumamo) ("\\.asp\\'" . asp-nxhtml-mumamo) ("\\.djhtml\\'" . django-nxhtml-mumamo) ("\\.rhtml\\'" . eruby-nxhtml-mumamo) ("\\.html.erb\\'" . eruby-nxhtml-mumamo) ("\\.phps\\'" . smarty-nxhtml-mumamo) ("\\.epl\\'" . embperl-nxhtml-mumamo) (".lzx\\'" . laszlo-nxml-mumamo) ("\\.js\\'" . javascript-mode) ("\\.css\\'" . css-mode))))
@@ -108,14 +152,14 @@
  '(default ((t (:height 105 :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(cursor ((t (:background "red"))))
  '(highlight-current-line-face ((t (:background "darkcyan"))))
- '(linum ((t (:inherit (shadow default) :background "gray15" :weight bold))))
+ '(linum ((t (:inherit (shadow default) :background "gray10" :weight bold))))
  '(magit-branch ((t (:inherit magit-header :background "blue" :slant italic :weight bold))))
  '(magit-diff-hunk-header ((t (:inherit magit-header :background "darkgreen"))))
  '(magit-header ((t (:background "darkred"))))
- '(message-header-cc ((t (:foreground "Blue3"))))
+ '(message-header-cc ((t (:foreground "DeepSkyBlue2"))))
  '(message-header-subject ((t (:foreground "yellow" :weight bold))))
  '(message-header-to ((t (:foreground "Red3" :weight bold))))
- '(mode-line ((t (:background "Blue" :foreground "black" :height 0.9 :family "DejaVu Sans"))))
+ '(mode-line ((t (:background "dim gray" :foreground "black" :box nil :height 0.9 :family "DejaVu Sans"))))
  '(mode-line-buffer-id ((t (:foreground "black" :weight bold))))
  '(mumamo-background-chunk-submode ((t (:background "#222233"))))
  '(quack-pltish-comment-face ((((class color) (background light)) (:foreground "red4"))))
@@ -125,35 +169,7 @@
 
 ;;-----------------------------------------------------------------------------
 
-;; enabling the server
-(server-start)
 
-(setq dotemacs-children-prefix "~/.emacs.children/")
-
-;;(require 'dotemacs)
-(load "~/.emacs.children/dotemacs.el")
-(dotemacs-load-children '("options"
-			  "recentf"
-;;			  "ido"
-			  "elisp"
-			  "ruby"
-			  "dictionary"
-			  "functions"
-			  "theme"
-			  "git"
-			  "twit"
-			  "svn"
-			  "scheme"
-			  "gnus"
-			  "bbdb"
-			  "w3"
-			  "anything"
-			  "company"
-			  "time_tracking"
-			  "jdee"
-			  "keymaps") )
-
-(setq debug-on-error nil)
 
 (provide '.emacs)
 

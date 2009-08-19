@@ -64,6 +64,8 @@
 ;;(set-face-background 'mode-line "DarkRed")
 ;;(set-face-background 'mode-line "#222288")
 
+(set-face-background 'mode-line "dim gray")
+
 (set-face-background 'highline-face "#222222")
 
 ;; Changing colors
