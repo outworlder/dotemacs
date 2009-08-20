@@ -25,7 +25,7 @@
 (set-key "<C-f10>" 'vc-git-grep)
     
 (set-key "<C-f7>" 'count-todos-in-buffer)
-(if nil
+(if (featurep 'ido)
     (progn
       (set-key "C-M-g" 'ido-goto-symbol)
       (global-set-key "\M-x" 'ido-execute)

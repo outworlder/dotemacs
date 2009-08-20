@@ -51,7 +51,7 @@
 (dotemacs-load-children '("options"
 			  "theme"
 			  "recentf"
-;;			  "ido"
+			  "ido"
 			  "elisp"
 			  ;; "ruby"
 			  "dictionary"
