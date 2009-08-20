@@ -165,7 +165,8 @@ mouse-3: Remove current window from display")))))
  '(quack-pltish-comment-face ((((class color) (background light)) (:foreground "red4"))))
  '(quack-pltish-defn-face ((t (:foreground "white" :slant italic :weight bold))))
  '(twit-author-face ((t (:weight bold :height 0.8 :family "sans"))))
- '(twit-message-face ((default (:family "sans")) (nil nil))))
+ '(twit-message-face ((default (:height 0.9 :family "sans")) (nil nil)))
+ '(twit-title-face ((((background light)) (:background "dark red" :underline "DeepSkyBlue" :box (:line-width 2 :color "PowderBlue" :style 0))) (((background dark)) (:background "dark red" :underline "DeepSkyBlue" :box (:line-width 2 :color "PowderBlue" :style 0))) (t (:underline "white")))))
 
 ;;-----------------------------------------------------------------------------
 
