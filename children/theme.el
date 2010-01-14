@@ -1,8 +1,8 @@
 ;; Loading color themes
 (require 'color-theme)
 
-(require 'highline)
-(highline-mode-on)
+(maybe-require 'highline
+    (highline-mode-on))
 
 ;;-----------------------------------------------------------------------------
 ;; Custom color theme (Based on Textmate's Vibrant Ink

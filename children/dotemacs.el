@@ -2,11 +2,19 @@
 
 (require 'cl)
 
-(require 'todochiku nil t)
+(defmacro maybe-require (package &optional body)
+  "Tries to load the specified package. If it succeeds, then body is executed (if provided)."
+  (if body
+      `(lambda ()
+      (require ,package nil t)
+	(if (featurep ,package)
+	    ,@body))
+    `(require ,package nil t)))
 
-(require 'auto-install)
-(setq auto-install-directory "~/.emacs.children/support/auto-install/")
-
+(maybe-require 'todochiku)
+(maybe-require 'auto-install
+    (setq auto-install-directory "~/.emacs.children/support/auto-install/"))
+	       
 (defun dotemacs-display-status (status)
   (if status
     (propertize "OK" 'face "flymake-warnline")
