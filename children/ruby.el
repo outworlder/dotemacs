@@ -1,15 +1,15 @@
 (require 'ruby-mode)
 (require 'ruby-electric)
 (require 'inf-ruby)
-(add-hook 'ruby-mode-hook
-          (lambda()
-            (inf-ruby-keys)))
 
 (defun ruby-insert-end ()
   (interactive)
   (insert "end")
   (ruby-indent-line t)
   (end-of-line))
+
+(setq ri-ruby-script (expand-file-name "~/.emacs.children/support/ri-emacs.rb"))
+(autoload 'ri "~/.emacs.children/support/ri-ruby.el" nil t)
 
 ;; Loading nXHTML
 (load "~/.emacs.d/nxhtml/autostart")
@@ -188,11 +188,21 @@
 (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
 
 (add-hook 'ruby-mode-hook
-          '(lambda ()
+          (lambda()
+            (inf-ruby-keys)) t)
+
+
+(add-hook 'ruby-mode-hook
+          (lambda ()
 	     ;; Don't want flymake mode for ruby regions in rhtml files and also on read only files
 	     (if (and (not (null buffer-file-name)) (file-writable-p buffer-file-name))
-		 (flymake-mode t))))
+		 (flymake-mode t))) t)
 
+(add-hook 'ruby-mode-hook (lambda ()
+			    (local-set-key [f1] 'ri)
+			    (local-set-key "\M-\C-i" 'ri-ruby-complete-symbol)
+			    (local-set-key [f4] 'ri-ruby-show-args)
+			    ) t)
 
 
 (add-hook 'after-save-hook 'check-ruby-debugger-statement)

@@ -53,7 +53,7 @@
 			  "recentf"
 			  "ido"
 			  "elisp"
-			  ;; "ruby"
+			  "ruby"
 			  "dictionary"
 			  "functions"
 			  "git"
