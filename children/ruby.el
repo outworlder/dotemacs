@@ -11,6 +11,8 @@
 (setq ri-ruby-script (expand-file-name "~/.emacs.children/support/ri-emacs.rb"))
 (autoload 'ri "~/.emacs.children/support/ri-ruby.el" nil t)
 
+(maybe-require 'rdebug)
+
 ;; Loading nXHTML
 (load "~/.emacs.d/nxhtml/autostart")
 (require 'nxhtml-mumamo)
@@ -48,8 +50,8 @@
 
 ;; (set-face-background 'mumamo-background-chunk-submode "midnight blue")
 
-;; (require 'rails)
-;; (require 'rails-view-minor-mode)
+(maybe-require 'rails)
+(maybe-require 'rails-view-minor-mode)
 
 (defun nxml-rails-mode ()
   (interactive)
