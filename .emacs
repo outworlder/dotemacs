@@ -31,7 +31,7 @@
 
 (setq load-path (append (list "~/.emacs.children/support"
 			      "~/.emacs.children/support/color-theme-6.6.0"
-                              ;; "~/.emacs.children/support/emacs-rails"
+                              "~/.emacs.children/support/emacs-rails"
 			      "~/.emacs.children/support/magit"
 			      "~/.emacs.children/support/org-mode/lisp"
 			      "~/.emacs.children/support/vm-7.19"
@@ -53,7 +53,7 @@
 			  "recentf"
 			  "ido"
 			  "elisp"
-			  ;; "ruby"
+			  "ruby"
 			  "dictionary"
 			  "functions"
 			  "git"
