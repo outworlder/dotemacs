@@ -13,3 +13,6 @@
 [submodule "children/support/w3"]
 	path = children/support/w3
 	url = git://git.sv.gnu.org/w3.git
+[submodule "emacs-rails"]
+	path = emacs-rails
+	url = http://github.com/spedrosa/emacs-rails.git
