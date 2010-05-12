@@ -1,11 +1,7 @@
 ;; Overriding the default org-mode. 
 (require 'org)
 
-;; This should not fail - bar cursor is now included.
-(require 'bar-cursor)
 ;; Setting cursor to a bar one.
-(if (fboundp 'bar-cursor-mode)
-    (bar-cursor-mode))
 
 ;; Displaying line numbers globally
 (require 'linum)
@@ -14,18 +10,8 @@
 (if (fboundp 'set-cursor-color)
     (set-cursor-color "red"))
 
-;; Changing the flymake error face
-(require 'flymake)
-(set-face-background 'flymake-errline "coral4")
-
 ;; Setting the default to Unicode
 (prefer-coding-system 'utf-8)
-
-(require 'color-theme)
-;; Setting a nice color theme
-(color-theme-initialize)
-;;(color-theme-dark-blue2)
-
 
 ;; Silencing the annoying bell
 (setq visible-bell t)

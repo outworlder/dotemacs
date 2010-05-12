@@ -27,6 +27,9 @@
 (set-key "<C-f10>" 'vc-git-grep)
     
 (set-key "<C-f7>" 'count-todos-in-buffer)
+
+(global-set-key "\C-c\C-r" 'recentf-open-files)
+
 (if (featurep 'ido)
     (progn
       (set-key "C-M-g" 'ido-goto-symbol)

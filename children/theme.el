@@ -1,8 +1,7 @@
+
 ;; Loading color themes
 (require 'color-theme)
-
-(maybe-require 'highline
-    (highline-mode-on))
+(color-theme-initialize)
 
 ;;-----------------------------------------------------------------------------
 ;; Custom color theme (Based on Textmate's Vibrant Ink
@@ -58,19 +57,27 @@
      (underline ((t (:underline t))))
      (minibuffer-prompt ((t (:bold t :foreground "#ff6600")))))))
 
-;;(color-theme-vivid-chalk)
-(color-theme-charcoal-black)
+(color-theme-vivid-chalk)
+;; (set-face-background 'mode-line "DarkRed")
+;; (set-face-background 'mode-line "#222288")
+;; (set-face-background 'mode-line "dim gray")
 
-;;(set-face-background 'mode-line "DarkRed")
-;;(set-face-background 'mode-line "#222288")
-
-(set-face-background 'mode-line "dim gray")
-
-(set-face-background 'highline-face "#222222")
+(maybe-require 'highline
+		 (highline-mode-on)
+		 (set-face-background 'highline-face "#222222"))
 
 ;; Changing colors
 ;(color-theme-zenburn)
 (set-cursor-color "red")
+
+;; This should not fail - bar cursor is now included.
+(maybe-require 'bar-cursor
+	       (if (fboundp 'bar-cursor-mode)
+		   (bar-cursor-mode)))
+
+;; Changing the flymake error face
+(maybe-require 'flymake
+	       (set-face-background 'flymake-errline "coral4"))
 
 ;; Font Specification
 ;;;      -maker-family-weight-slant-widthtype-style...

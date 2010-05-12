@@ -22,10 +22,10 @@
 ;;; interfacing with ELPA, the package archive.
 ;;; Move this code earlier if you want to reference
 ;;; packages in your .emacs.
-;; (when
-;;     (load
-;;      (expand-file-name "~/.emacs.d/elpa/package.el"))
-;;   (package-initialize))
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
 
 ;;-----------------------------------------------------------------------------
 
@@ -49,7 +49,6 @@
 ;;(require 'dotemacs)
 (load "~/.emacs.children/dotemacs.el")
 (dotemacs-load-children '("options"
-			  "theme"
 			  "recentf"
 			  "ido"
 			  "elisp"
@@ -67,7 +66,8 @@
 			  "company"
 			  "time_tracking"
 			  "jdee"
-			  "keymaps") )
+			  "keymaps"
+			  "theme") )
 
 (setq debug-on-error nil)
 
@@ -150,7 +150,6 @@ mouse-3: Remove current window from display")))))
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(default ((t (:height 105 :foundry "unknown" :family "DejaVu Sans Mono"))))
- '(cursor ((t (:background "red"))))
  '(highlight-current-line-face ((t (:background "darkcyan"))))
  '(linum ((t (:inherit (shadow default) :background "gray10" :weight bold))))
  '(magit-branch ((t (:inherit magit-header :background "blue" :slant italic :weight bold))))
@@ -176,13 +175,3 @@ mouse-3: Remove current window from display")))))
 
 ;;; .emacs ends here
 
-
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))

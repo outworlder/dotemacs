@@ -2,13 +2,14 @@
 
 (require 'cl)
 
-(defmacro maybe-require (package &optional body)
+(defmacro maybe-require (package &rest body)
   "Tries to load the specified package. If it succeeds, then body is executed (if provided)."
   (if body
       `(progn
 	 (require ,package nil t)
 	 (if (featurep ,package)
-	     ,body))
+	     (progn
+	       ,@body)))
     `(require ,package nil t)))
 
 (maybe-require 'todochiku)
