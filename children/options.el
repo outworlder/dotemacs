@@ -45,6 +45,10 @@
 
 (set-scroll-bar-mode 'right)
 
+;; Turning on window-numbering-mode
+(require 'window-numbering)
+(window-numbering-mode 1)
+
 ;; Turning on the global-auto-revert-mode
 (global-auto-revert-mode)
 
