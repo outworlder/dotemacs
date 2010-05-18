@@ -67,3 +67,7 @@
     (setq default-directory "~/projects")))
 
 (put 'narrow-to-region 'disabled nil)
+
+;; For the Google Chrome extension
+(maybe-require 'edit-server
+	       (edit-server-start)
