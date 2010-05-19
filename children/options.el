@@ -68,6 +68,9 @@
 
 (put 'narrow-to-region 'disabled nil)
 
+;; HTML export
+(maybe-require 'htmlize)
+
 ;; For the Google Chrome extension
 (maybe-require 'edit-server
 	       (edit-server-start)
