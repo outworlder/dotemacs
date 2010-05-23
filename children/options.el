@@ -73,6 +73,7 @@
 
 ;; For the Google Chrome extension
 (maybe-require 'edit-server
+<<<<<<< HEAD
 	       (edit-server-start))
 
 ;; Enabling cut and copy with the clipboard
@@ -80,3 +81,6 @@
 (setq x-select-enable-clipboard t)
 (setq select-active-regions t)
 (global-set-key [mouse-2] 'mouse-yank-primary)
+=======
+	       (edit-server-start))
+>>>>>>> 1d0985a... - Oops, missing close paren.
