@@ -70,4 +70,4 @@
 
 ;; For the Google Chrome extension
 (maybe-require 'edit-server
-	       (edit-server-start)
+	       (edit-server-start))
