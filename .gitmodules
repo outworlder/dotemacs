@@ -16,3 +16,6 @@
 [submodule "emacs-rails"]
 	path = emacs-rails
 	url = http://github.com/spedrosa/emacs-rails.git
+[submodule "children/support/egg"]
+	path = children/support/egg
+	url = http://github.com/bogolisk/egg.git

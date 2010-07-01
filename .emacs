@@ -37,6 +37,7 @@
 			      "~/.emacs.children/support/vm-7.19"
 			      "~/.emacs.children/support/bbdb-2.35/lisp"
 			      "~/.emacs.children/support/emms/lisp"
+			      "~/.emacs.children/support/egg"
 			      "~/.emacs.children/support/auto-install"
                               ) load-path ))
 

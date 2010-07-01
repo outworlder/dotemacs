@@ -22,7 +22,7 @@
 (set-key "<M-S-f9>" 'find-file-in-project)
 (set-key "<C-f5>" 'jira-show-assigned-me)
 
-(set-key "<M-S-f12>" 'magit-status)
+(set-key "<M-S-f12>" 'egg-status)
 
 (set-key "<C-f10>" 'vc-git-grep)
     
