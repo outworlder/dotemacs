@@ -57,7 +57,11 @@
      (underline ((t (:underline t))))
      (minibuffer-prompt ((t (:bold t :foreground "#ff6600")))))))
 
-(color-theme-vivid-chalk)
+(maybe-require 'color-theme-railscasts
+	       (color-theme-railscasts))
+
+;;(color-theme-vivid-chalk)
+
 ;; (set-face-background 'mode-line "DarkRed")
 ;; (set-face-background 'mode-line "#222288")
 ;; (set-face-background 'mode-line "dim gray")
@@ -65,7 +69,7 @@
 
 (maybe-require 'highline
 		 (highline-mode-on)
-		 (set-face-background 'highline "#222222")
+		 ;; (set-face-background 'highline "#222222")
 		 (set-face-background 'highline-face "#222222"))
 
 ;; This is for Aquamacs
