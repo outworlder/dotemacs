@@ -61,6 +61,7 @@
 			  "scheme"
 			  "gnus"
 			  "bbdb"
+			  "lisp"
 			  "w3"
 			  "anything"
 			  "company"
