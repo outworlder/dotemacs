@@ -37,8 +37,8 @@
 
 ;;(set-face-background 'mumamo-background-chunk-submode "midnight blue")
 ;; Lighter shade of blue for the mumamo chunks (used in nxhtml-mode)
-;;(set-face-background 'mumamo-background-chunk-submode "#111133")
-;;(set-face-background 'mumamo-background-chunk-submode "#111166")
+(set-face-background 'mumamo-background-chunk-major "#111133")
+(set-face-background 'mumamo-background-chunk-submode1 "#111166")
 
 (setq
  nxhtml-global-minor-mode t
