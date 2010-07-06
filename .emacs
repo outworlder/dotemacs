@@ -57,6 +57,7 @@
 			  "dictionary"
 			  "functions"
 			  "git"
+			  "egg"
 			  "twit"
 			  "svn"
 			  "scheme"
