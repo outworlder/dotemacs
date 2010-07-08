@@ -39,6 +39,8 @@
 			      "~/.emacs.children/support/emms/lisp"
 			      "~/.emacs.children/support/egg"
 			      "~/.emacs.children/support/auto-install"
+			      "~/.emacs.children/support/cedet-1.0pre7"
+			      "~/.emacs.children/support/jdee-2.4.0.1/lisp"
                               ) load-path ))
 
 
@@ -68,6 +70,7 @@
 			  "anything"
 			  "company"
 			  "time_tracking"
+			  "cedet"
 			  "jdee"
 			  "keymaps"
 			  "theme") )
