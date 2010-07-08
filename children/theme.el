@@ -60,7 +60,7 @@
 (maybe-require 'color-theme-railscasts
 	       (color-theme-railscasts))
 
-;;(color-theme-vivid-chalk)
+(color-theme-vivid-chalk)
 
 ;; (set-face-background 'mode-line "DarkRed")
 ;; (set-face-background 'mode-line "#222288")
