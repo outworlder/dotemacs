@@ -74,3 +74,6 @@
 ;; For the Google Chrome extension
 (maybe-require 'edit-server
 	       (edit-server-start))
+
+;; Enabling cut and copy with the clipboard
+(setq x-select-enable-clipboard t)
