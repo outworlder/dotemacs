@@ -134,7 +134,7 @@
 
 
 (defun find-file-in-project (file)
-  (interactive (list (if nil
+  (interactive (list (if (functionp 'ido-completing-read)
                          (ido-completing-read "Find file in project: " (mapcar 'car (project-files)))
                          (completing-read "Find file in project: " (mapcar 'car (project-files))))))
   (find-file (cdr (assoc file project-files-table))))
