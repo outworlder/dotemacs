@@ -1,0 +1,2 @@
+(require 'textmate)
+(tm/initialize)
