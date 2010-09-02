@@ -1,5 +1,5 @@
 (require 'ruby-mode)
-(require 'ruby-electric)
+;; (require 'ruby-electric)
 (require 'inf-ruby)
 
 (defun ruby-insert-end ()
@@ -83,9 +83,9 @@
 ;;(add-hook 'ruby-mode-hook 'turn-on-font-lock)
 (add-hook 'ruby-mode-hook
 	  (lambda ()
-	    (define-key ruby-mode-map "\C-m" 'newline-and-indent)
-            (require 'ruby-electric)
-            (ruby-electric-mode t)))
+	    (define-key ruby-mode-map "\C-m" 'newline-and-indent)))
+            ;(require 'ruby-electric)
+            ;(ruby-electric-mode t)))
 
 ;; TODO: Only check this for .rb files.
 ;; Warns if we are saving a file with a debugger statement
