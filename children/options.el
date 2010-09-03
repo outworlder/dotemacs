@@ -72,7 +72,8 @@
 (maybe-require 'htmlize)
 
 ;; For the Google Chrome extension
-(maybe-require 'edit-server)
+(maybe-require 'edit-server
+	       (edit-server-start))
 
 ;; Enabling cut and copy with the clipboard
 (setq x-select-enable-primary nil)

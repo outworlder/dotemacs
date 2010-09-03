@@ -71,10 +71,11 @@
 			  "anything"
 			  "company"
 			  "time_tracking"
-			  "cedet"
+			  ;; "cedet"
 			  "jdee"
 			  "muse"
 			  "keymaps"
+			  "textmate"
 			  "theme") )
 
 (setq debug-on-error nil)
