@@ -189,6 +189,20 @@
 
 (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
 
+(defun ruby-insert-hash-string ()
+  (interactive)
+  "Inserts a #{} but only if inside a string"
+  (let ((stringp (fourth (syntax-ppss)))
+	(skeleton-end-newline nil))
+    (if stringp
+	(skeleton-insert '(nil ?# ?{ _ ?} nil))
+      (skeleton-insert '(nil ?# _)))))
+
+(add-hook 'ruby-mode-hook
+	  (lambda ()
+	    (local-set-key "#" 'ruby-insert-hash-string)))
+
+
 (add-hook 'ruby-mode-hook
           (lambda()
             (inf-ruby-keys)) t)

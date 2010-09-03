@@ -13,3 +13,15 @@
 ;; (setq autopair-autowrap t)
 ;; (setq autopair-blink t)
 
+;; MOVED to ruby-el
+;; (defun ruby-insert-hash-string ()
+;;   "Inserts a #{} but only if inside a string"
+;;   (let ((stringp (fourth (syntax-ppss)))
+;; 	(skeleton-end-newline nil))
+;;     (if stringp
+;; 	(skeleton-insert '(nil ?# ?{ _ ?} nil))
+;;       (skeleton-insert '(nil ?# _)))))
+
+;; (add-hook 'ruby-mode-hook
+;; 	  (lambda ()
+;; 	    ()))
