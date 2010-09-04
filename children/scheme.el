@@ -4,4 +4,5 @@
 
 (add-hook 'scheme-mode-hook
 	  '(lambda ()
-	     (highlight-parentheses-mode t)))
+	     (maybe-require 'highlight-parentheses
+			    (highlight-parentheses-mode t))))
