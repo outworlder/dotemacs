@@ -220,6 +220,9 @@
 			    (local-set-key [f4] 'ri-ruby-show-args)
 			    ) t)
 
+(add-hook 'ruby-mode-hook
+	  (lambda ()
+	    (rvm-activate-corresponding-ruby)))
 
 (add-hook 'after-save-hook 'check-ruby-debugger-statement)
 (add-hook 'ruby-mode-hook 'check-ruby-debugger-statement)

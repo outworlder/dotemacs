@@ -57,6 +57,7 @@
 			  "ido"
 			  "elisp"
 			  "ruby"
+			  "rvm"
 			  "dictionary"
 			  "functions"
 			  "git"
