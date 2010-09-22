@@ -224,6 +224,7 @@
 			    (local-set-key [f1] 'ri)
 			    (local-set-key "\M-\C-i" 'ri-ruby-complete-symbol)
 			    (local-set-key [f4] 'ri-ruby-show-args)
+			    (local-set-key "\C-'" 'ruby-insert-=>)
 			    ) t)
 
 (add-hook 'ruby-mode-hook
