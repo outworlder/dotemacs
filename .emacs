@@ -61,7 +61,7 @@
 			  "dictionary"
 			  "functions"
 			  "git"
-			  "egg"
+			  ;"egg"
 			  "twit"
 			  "svn"
 			  "scheme"
