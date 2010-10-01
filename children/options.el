@@ -7,6 +7,9 @@
 (require 'linum)
 (global-linum-mode t)
 
+;; Preventing the toggling off linum mode (mostily under nxhtml-mode)
+(add-hook 'after-change-major-mode-hook 'linum-on) 
+
 (if (fboundp 'set-cursor-color)
     (set-cursor-color "red"))
 
