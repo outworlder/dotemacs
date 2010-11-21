@@ -37,7 +37,11 @@
 			      "~/.emacs.children/support/vm-7.19"
 			      "~/.emacs.children/support/bbdb-2.35/lisp"
 			      "~/.emacs.children/support/emms/lisp"
+			      "~/.emacs.children/support/egg"
 			      "~/.emacs.children/support/auto-install"
+			      "~/.emacs.children/support/cedet-1.0pre7"
+			      "~/.emacs.children/support/jdee-2.4.0.1/lisp"
+			      "~/.emacs.children/support/muse-latest/lisp"
                               ) load-path ))
 
 
@@ -53,9 +57,11 @@
 			  "ido"
 			  "elisp"
 			  "ruby"
+			  "rvm"
 			  "dictionary"
 			  "functions"
 			  "git"
+			  ;"egg"
 			  "twit"
 			  "svn"
 			  "scheme"
@@ -66,8 +72,11 @@
 			  "anything"
 			  "company"
 			  "time_tracking"
+			  ;; "cedet"
 			  "jdee"
+			  "muse"
 			  "keymaps"
+			  "textmate"
 			  "theme") )
 
 (setq debug-on-error nil)

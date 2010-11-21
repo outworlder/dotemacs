@@ -1,5 +1,5 @@
 (require 'ruby-mode)
-(require 'ruby-electric)
+;; (require 'ruby-electric)
 (require 'inf-ruby)
 
 (defun ruby-insert-end ()
@@ -37,8 +37,8 @@
 
 ;;(set-face-background 'mumamo-background-chunk-submode "midnight blue")
 ;; Lighter shade of blue for the mumamo chunks (used in nxhtml-mode)
-;;(set-face-background 'mumamo-background-chunk-submode "#111133")
-;;(set-face-background 'mumamo-background-chunk-submode "#111166")
+(set-face-background 'mumamo-background-chunk-major "#111133")
+(set-face-background 'mumamo-background-chunk-submode1 "#111166")
 
 (setq
  nxhtml-global-minor-mode t
@@ -83,9 +83,9 @@
 ;;(add-hook 'ruby-mode-hook 'turn-on-font-lock)
 (add-hook 'ruby-mode-hook
 	  (lambda ()
-	    (define-key ruby-mode-map "\C-m" 'newline-and-indent)
-            (require 'ruby-electric)
-            (ruby-electric-mode t)))
+	    (define-key ruby-mode-map "\C-m" 'newline-and-indent)))
+            ;(require 'ruby-electric)
+            ;(ruby-electric-mode t)))
 
 ;; TODO: Only check this for .rb files.
 ;; Warns if we are saving a file with a debugger statement
@@ -134,7 +134,7 @@
 
 
 (defun find-file-in-project (file)
-  (interactive (list (if nil
+  (interactive (list (if (functionp 'ido-completing-read)
                          (ido-completing-read "Find file in project: " (mapcar 'car (project-files)))
                          (completing-read "Find file in project: " (mapcar 'car (project-files))))))
   (find-file (cdr (assoc file project-files-table))))
@@ -189,6 +189,26 @@
 
 (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
 
+(defun ruby-insert-hash-string ()
+  "Inserts a #{} but only if inside a string"
+  (interactive)
+  (let ((stringp (fourth (syntax-ppss)))
+	(skeleton-end-newline nil))
+    (if stringp
+	(skeleton-insert '(nil ?# ?{ _ ?} nil))
+      (skeleton-insert '(nil ?# _)))))
+
+(defun ruby-insert-=> ()
+  "Inserts a =>"
+  (interactive)
+  (let ((skeleton-end-newline nil))
+    (skeleton-insert '(nil " => "))))
+
+(add-hook 'ruby-mode-hook
+	  (lambda ()
+	    (local-set-key "#" 'ruby-insert-hash-string)
+	    (local-set-key (read-kbd-macro "^'") 'ruby-insert-=>)))
+
 (add-hook 'ruby-mode-hook
           (lambda()
             (inf-ruby-keys)) t)
@@ -204,8 +224,12 @@
 			    (local-set-key [f1] 'ri)
 			    (local-set-key "\M-\C-i" 'ri-ruby-complete-symbol)
 			    (local-set-key [f4] 'ri-ruby-show-args)
+			    (local-set-key "\C-'" 'ruby-insert-=>)
 			    ) t)
 
+(add-hook 'ruby-mode-hook
+	  (lambda ()
+	    (rvm-activate-corresponding-ruby)))
 
 (add-hook 'after-save-hook 'check-ruby-debugger-statement)
 (add-hook 'ruby-mode-hook 'check-ruby-debugger-statement)

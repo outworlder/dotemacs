@@ -7,6 +7,9 @@
 (require 'linum)
 (global-linum-mode t)
 
+;; Preventing the toggling off linum mode (mostily under nxhtml-mode)
+(add-hook 'after-change-major-mode-hook 'linum-on) 
+
 (if (fboundp 'set-cursor-color)
     (set-cursor-color "red"))
 
@@ -68,6 +71,15 @@
 
 (put 'narrow-to-region 'disabled nil)
 
+;; HTML export
+(maybe-require 'htmlize)
+
 ;; For the Google Chrome extension
 (maybe-require 'edit-server
 	       (edit-server-start))
+
+;; Enabling cut and copy with the clipboard
+(setq x-select-enable-primary nil)
+(setq x-select-enable-clipboard nil)
+(setq select-active-regions t)
+(global-set-key [mouse-2] 'mouse-yank-primary)

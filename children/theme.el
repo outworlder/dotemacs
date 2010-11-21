@@ -57,7 +57,11 @@
      (underline ((t (:underline t))))
      (minibuffer-prompt ((t (:bold t :foreground "#ff6600")))))))
 
+(maybe-require 'color-theme-railscasts
+	       (color-theme-railscasts))
+
 (color-theme-vivid-chalk)
+
 ;; (set-face-background 'mode-line "DarkRed")
 ;; (set-face-background 'mode-line "#222288")
 ;; (set-face-background 'mode-line "dim gray")
@@ -65,7 +69,7 @@
 
 (maybe-require 'highline
 		 (highline-mode-on)
-		 (set-face-background 'highline "#222222")
+		 ;; (set-face-background 'highline "#222222")
 		 (set-face-background 'highline-face "#222222"))
 
 ;; This is for Aquamacs
@@ -106,7 +110,7 @@
 (setq st-svn-status-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1")
 ;; (setq st-default-font "-unknown-Inconsolata-medium-*-*-*-16-*-*-*-*-0-iso10646-1")
 
-(setq st-default-font "Inconsolata-12")
+(setq st-default-font "DejaVu Sans Mono-12")
 (setq st-smaller-font "Verdana-10")
 
 ;; (defun dotemacs-try-fonts (font-list &optional funct)
@@ -122,9 +126,9 @@
 ;; (dotemacs-try-fonts '("-unknown-DejaVu Sans Mono-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1"
 ;; 		      "-apple-monaco-medium-r-normal--16-140-72-72-m-140-mac-roman"))
 
-;; (set-default-font st-default-font)
+(set-default-font st-default-font)
 ;; ;; Setting font for new frames
-;; (add-to-list 'default-frame-alist `(font . ,st-default-font))
+(add-to-list 'default-frame-alist `(font . ,st-default-font))
 
 ;; ;; Using a smaller font for the modeline
 ;; (set-face-font 'mode-line st-smaller-font)
@@ -134,10 +138,10 @@
 ;; (set-face-font 'minibuffer-prompt st-smaller-font)
 ;; (set-face-foreground 'mode-line "White")
 
-;; (if (featurep 'ido)
-;;     (progn
-;;       (set-face-font 'ido-first-match st-default-font)
-;;       (set-face-foreground 'ido-first-match "Red")))
+(if (featurep 'ido)
+    (progn
+      (set-face-font 'ido-first-match st-default-font)
+      (set-face-foreground 'ido-first-match "Red")))
 
 ;;(set-face-font 'svn-status-filename-face (read-face-font 'fixed-pitch)) ;;TODO
 ;;(set-face-font 'svn-status-filename-face "-unknown-DejaVu Sans Mono-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
