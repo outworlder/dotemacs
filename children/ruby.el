@@ -206,8 +206,7 @@
 
 (add-hook 'ruby-mode-hook
 	  (lambda ()
-	    (local-set-key "#" 'ruby-insert-hash-string)
-	    (local-set-key (read-kbd-macro "^'") 'ruby-insert-=>)))
+	    (local-set-key "#" 'ruby-insert-hash-string)))
 
 (add-hook 'ruby-mode-hook
           (lambda()
@@ -216,16 +215,15 @@
 
 (add-hook 'ruby-mode-hook
           (lambda ()
-	     ;; Don't want flymake mode for ruby regions in rhtml files and also on read only files
-	     (if (and (not (null buffer-file-name)) (file-writable-p buffer-file-name))
-		 (flymake-mode t))) t)
+	    ;; Don't want flymake mode for ruby regions in rhtml files and also on read only files
+	    (if (and (not (null buffer-file-name)) (file-writable-p buffer-file-name))
+		(flymake-mode t))) t)
 
 (add-hook 'ruby-mode-hook (lambda ()
 			    (local-set-key [f1] 'ri)
 			    (local-set-key "\M-\C-i" 'ri-ruby-complete-symbol)
 			    (local-set-key [f4] 'ri-ruby-show-args)
-			    (local-set-key "\C-'" 'ruby-insert-=>)
-			    ) t)
+			    (local-set-key "\C-'" 'ruby-insert-=>)) t)
 
 (add-hook 'ruby-mode-hook
 	  (lambda ()
@@ -234,3 +232,6 @@
 (add-hook 'after-save-hook 'check-ruby-debugger-statement)
 (add-hook 'ruby-mode-hook 'check-ruby-debugger-statement)
 
+(add-hook 'ruby-mode-hook
+	  (lambda ()
+	    (local-set-key (read-kbd-macro "^'") 'ruby-insert-=>)))
