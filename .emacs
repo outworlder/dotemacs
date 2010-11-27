@@ -57,10 +57,11 @@
 			  "ido"
 			  "elisp"
 			  "ruby"
+			  "rvm"
 			  "dictionary"
 			  "functions"
 			  "git"
-			  "egg"
+			  ;"egg"
 			  "twit"
 			  "svn"
 			  "scheme"
@@ -90,6 +91,10 @@
   ;; If there is more than one, they won't work right.
  '(auto-completion-delay 0.5)
  '(bbdb-complete-name-allow-cycling t)
+ '(cluck-fontify-style nil)
+ '(cluck-newline-behavior (quote indent-newline-indent))
+ '(cluck-pltish-fontify-definition-names-p t)
+ '(cluck-pltish-fontify-syntax-keywords-p t)
  '(completion-auto-show nil)
  '(completion-auto-show-delay 1)
  '(completion-use-echo t)

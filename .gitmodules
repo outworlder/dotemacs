@@ -19,3 +19,4 @@
 [submodule "children/support/egg"]
 	path = children/support/egg
 	url = http://github.com/bogolisk/egg.git
+

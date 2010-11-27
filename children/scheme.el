@@ -6,3 +6,5 @@
 	  '(lambda ()
 	     (maybe-require 'highlight-parentheses
 			    (highlight-parentheses-mode t))))
+
+(require 'cluck)
