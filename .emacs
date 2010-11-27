@@ -64,6 +64,7 @@
 			  "twit"
 			  "svn"
 			  "scheme"
+			  "paredit"
 			  "gnus"
 			  "bbdb"
 			  "lisp"
