@@ -42,6 +42,7 @@
 			      "~/.emacs.children/support/cedet-1.0pre7"
 			      "~/.emacs.children/support/jdee-2.4.0.1/lisp"
 			      "~/.emacs.children/support/muse-latest/lisp"
+			      "~/.emacs.children/support/company"
                               ) load-path ))
 
 
@@ -111,6 +112,7 @@
  '(erc-track-enable-keybindings t)
  '(erc-track-exclude-types (quote ("JOIN" "NICK" "PART" "QUIT" "333" "353")))
  '(erc-user-full-name "Stephen Pedrosa Eilert")
+ '(geiser-guile-binary "/usr/local/bin/guile")
  '(highline-ignore-regexp "Faces\\|Colors\\|Minibuf\\|\\*tip\\*\\|\\*.*\\*")
  '(highline-priority 9999)
  '(ido-enable-flex-matching t)

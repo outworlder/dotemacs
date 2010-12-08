@@ -8,3 +8,7 @@
 			    (highlight-parentheses-mode t))))
 
 (require 'cluck)
+
+;;; Using Geiser (Experimental support)
+
+(load-file "~/Documentos/Projetos/geiser/elisp/geiser.el")

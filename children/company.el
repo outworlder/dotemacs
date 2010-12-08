@@ -1,3 +1,2 @@
-(if (featurep 'company)
-    (company-mode t))
-
+(maybe-require 'company
+	       (company-mode t))
