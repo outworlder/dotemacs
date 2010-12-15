@@ -20,3 +20,6 @@
 	path = children/support/egg
 	url = http://github.com/bogolisk/egg.git
 
+[submodule "children/support/cluck"]
+	path = children/support/cluck
+	url = https://github.com/ddp/cluck.git

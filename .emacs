@@ -42,6 +42,7 @@
 			      "~/.emacs.children/support/cedet-1.0pre7"
 			      "~/.emacs.children/support/jdee-2.4.0.1/lisp"
 			      "~/.emacs.children/support/muse-latest/lisp"
+			      "~/.emacs.children/support/cluck"
                               ) load-path ))
 
 
@@ -90,6 +91,7 @@
   ;; If there is more than one, they won't work right.
  '(auto-completion-delay 0.5)
  '(bbdb-complete-name-allow-cycling t)
+ '(cluck-fontify-style nil)
  '(completion-auto-show nil)
  '(completion-auto-show-delay 1)
  '(completion-use-echo t)
