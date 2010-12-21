@@ -9,8 +9,18 @@
 	     (maybe-require 'highlight-parentheses
 			    (highlight-parentheses-mode t))))
 
-(require 'cluck)
-
 ;;; Using Geiser (Experimental support)
 
-(load-file "~/Documentos/Projetos/geiser/elisp/geiser.el")
+;(load-file "~/Documentos/Projetos/geiser/elisp/geiser.el")
+
+(add-to-list 'load-path "~/.emacs.children/support/slime") ; your SLIME directory
+
+(require 'slime)
+(slime-setup '(slime-fancy))
+
+(autoload 'chicken-slime "chicken-slime" "SWANK backend for Chicken" t)
+(setq swank-chicken-path "~/.emacs.children/support/swank-chicken.scm")
+
+(add-hook 'scheme-mode-hook
+          (lambda ()
+            (slime-mode t)))
