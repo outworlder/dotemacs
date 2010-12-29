@@ -63,6 +63,7 @@
 			  "dictionary"
 			  "functions"
 			  "git"
+			  "go"
 			  ;"egg"
 			  "twit"
 			  "svn"
@@ -157,6 +158,7 @@ mouse-3: Remove current window from display")))))
  '(show-paren-mode t)
  '(speedbar-use-images t)
  '(timeclock-relative nil)
+ '(tm/dont-activate t)
  '(todochiku-icons-directory "~/.emacs.children/support/todochiku-icons")
  '(twit-follow-idle-interval 5)
  '(twit-show-user-images t)
