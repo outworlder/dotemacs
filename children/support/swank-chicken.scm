@@ -1,5 +1,5 @@
 ;;;
-;;; Copyright (c) 2010 Nick Gasson
+;;; Copyright (c) 2010-2011 Nick Gasson
 ;;;
 ;;; Permission is hereby granted, free of charge, to any person obtaining a
 ;;; copy of this software and associated documentation files (the "Software"),
@@ -20,6 +20,13 @@
 ;;; DEALINGS IN THE SOFTWARE.
 ;;;
 
+(require 'tcp)
+(require 'posix)
+(require-extension symbol-utils
+                   apropos
+                   chicken-doc
+                   fmt)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -36,42 +43,52 @@
 ;;; And accept the default options.
 ;;;
 
-(require 'tcp)
-(require 'posix)
-(require-extension symbol-utils
-                   format)
-
 ;; Safe printing routine that always uses the server's standard output.
 (define debug-print
   (let ((normal-port (current-output-port)))
     (lambda args
       (with-output-to-port normal-port
         (lambda ()
-          (apply print args))))))
+          (apply print args)))
+      (flush-output normal-port))))
 
 ;; Send list `msg' as a reply back to SLIME.
 (define (swank-write-packet msg out)
-  (define (pad-hex-string n pad)
-    (let* ((base (format "~x" n))
-           (length (string-length base)))
-      (if (>= length pad)
-          base
-          (string-append (make-string (- pad length) #\0)
-                         base))))
-
   (let* ((string (with-output-to-string
                    (lambda ()
                      (write msg))))
-         (padded (pad-hex-string (string-length string) 6))
-         (packet (string-append padded string)))
-
+         (pad-hex (lambda (n)
+                    (pad-char #\0 (pad/left 6 (num n 16)))))
+         (packet (fmt #f (pad-hex (string-length string)) string)))
+                      
     ;; This may be called by code that has set print-length-limit so we
     ;; have to use this kludge to avoid truncating the packet.
     (##sys#with-print-length-limit #f (lambda ()
-                                        (debug-print (format "WRITE ~a" packet))
+                                        (debug-print (fmt #f "WRITE " (wrt packet)))
                                         (display packet out)))
        
     (flush-output out)))
+
+;; Replace Common Lisp-isms such as :foo, nil, and t with (quote foo),
+;; (quote ()), and #t respectively.
+(define (swank-cleanup sexp)
+  (define (cleanup-symbol sym)
+    (let ((sym-str (symbol->string sym)))
+      (cond
+       ((eq? (string-ref sym-str 0) #\:)
+        `(quote ,(string->symbol (substring sym-str 1))))
+       ((eq? sym 'nil)
+        '(quote ()))
+       ((eq? sym 't)
+        #t)
+       (else sym))))
+  
+  (cond
+   ((list? sexp)
+    (map swank-cleanup sexp))
+   ((symbol? sexp)
+    (cleanup-symbol sexp))
+   (else sexp)))
 
 ;; Tail-recursive loop to read commands from SWANK socket and dispatch them.
 ;; Several calls to this may be active at once e.g. when using the debugger.
@@ -82,11 +99,11 @@
      ((or (eof-object? length) (eof-object? request))
       (void))
      (else
-      (debug-print (format "READ ~a ~a" length request))
+      (debug-print (fmt #f "READ " (wrt length) (wrt request)))
       (case (car request)
         ((:emacs-rex)
          (begin
-           (apply swank-emacs-rex in out (cdr request))
+           (apply swank-emacs-rex in out (swank-cleanup (cdr request)))
            (swank-event-loop in out)))
         ((:emacs-return-string)
          (cadddr request)))))))
@@ -94,12 +111,13 @@
 ;; Format the call chain for output by SLIME.
 (define (swank-call-chain chain)
   (define (frame-string f)
-    (format "~8a ~16@a ~s"
-            (vector-ref f 0)
-            (cond
-             ((vector-ref f 2) => (lambda (str) (format "[~a]" str)))
-             (else ""))
-            (vector-ref f 1)))
+    (fmt #f (pad 9 (dsp (vector-ref f 0)))
+         (pad 16 (dsp (cond
+                       ((vector-ref f 2) => (lambda (where)
+                                              (fmt #f "[" where "]")))
+                       (else ""))))
+         " "
+         (dsp (vector-ref f 1))))
   
   (define (loop n frames)
     (cond
@@ -111,22 +129,18 @@
 
 ;; Called when an exception is thrown while evaluating a swank:* function.
 (define (swank-exception in out id exn chain)
-  (define (format-list items)
-    (string-concatenate (map (lambda (item) (format "~a " item)) items)))
-  
   (let ((get-key (lambda (key)
                    ((condition-property-accessor 'exn key) exn))))
-    (debug-print (format "ERROR msg: ~a args: ~a loc ~a"
-                   (get-key 'message)
-                   (get-key 'arguments)
-                   (get-key 'location)))
-    (let ((first-line (format "Error: ~a~a: ~a"
+    (debug-print (fmt #f "ERROR msg: " (get-key 'message)
+                      " args: " (get-key 'arguments)
+                      " loc " (get-key 'location)))
+    (let ((first-line (fmt #f "Error: "
                               (cond
                                ((get-key 'location) => (lambda (l)
-                                                         (format "(~a) " l)))
+                                                         (fmt #f "(" l ") ")))
                                (else ""))
                               (get-key 'message)
-                              (format-list (get-key 'arguments)))))
+                              ": " (fmt-join wrt (get-key 'arguments) " "))))
       (swank-write-packet
        `(:debug 0 0        ; Thread, level (dummy values)
                 (,first-line "" nil)                      ; Condition
@@ -147,7 +161,7 @@
 (define (swank-output-port out)
   (make-output-port
    (lambda (str)
-     (swank-write-packet `(:write-string ,(format "~a" str))
+     (swank-write-packet `(:write-string ,(fmt #f str))
                          out))
    void
    void))
@@ -206,11 +220,13 @@
                            (lambda ()
                              (swank-eval-or-condition sexp)))))))
           (cond
-           ((condition? (car thing))
+           ((not (condition? (car thing)))
+            (set! result `(:return ,(cdr thing) ,id)))
+           (((condition-predicate 'exn) (car thing))
             (swank-exception in out id (car thing) (cdr thing)))
-           (else
-            (set! result `(:return ,(cdr thing) ,id))))))
-
+           (((condition-predicate 'user-interrupt) (car thing))
+            (set! result `(:return (:abort user-interrupt) ,id))))))
+           
       ;; Output is always written when unwinding the stack to ensure we
       ;; reply to every message e.g. when escaping via continuation to
       ;; the top level after exiting the debugger.
@@ -247,7 +263,17 @@
             (call/cc (lambda (hop)
                        (set! *swank-top-level* hop)))
             ;; Whenever we escape from the debugger we'll end up here
-            (swank-event-loop in out))))
+
+            (let ((orig-handler (current-exception-handler)))
+              (with-exception-handler
+               (lambda (exn)
+                 (cond
+                  (((condition-predicate 'user-interrupt) exn)
+                   (*swank-top-level* (void)))
+                  (else 
+                   (orig-handler exn))))
+               (lambda ()
+                 (swank-event-loop in out)))))))
       
       (lambda ()
         (tcp-close listener)))))
@@ -297,7 +323,7 @@
               (eval `(begin ,@forms)))))
     (lambda results
           `(:ok (:values ,@(map (lambda (r)
-                                  (format "~s" r))
+                                  (fmt #f (wrt r)))
                                 results))))))
 
 ;; "Compile" a string. For us this just means eval and discard the
@@ -310,6 +336,20 @@
               forms)
     `(:ok (:compilation-result nil t 0.0 nil nil))))  ; TODO: eval time
 
+;; Evaluate an expression and return a result for the minibuffer.
+(define (swank:interactive-eval str)
+  (let* ((forms (string->forms str))
+         (result (if (not (null? forms))
+                     (fmt #f "=> " (eval `(begin ,@forms)))
+                     "; No value")))
+    `(:ok ,result)))
+
+(define swank:interactive-eval-region swank:interactive-eval)
+
+;; Evaluate an expression and pretty-print the result.
+(define (swank:pprint-eval str)
+  `(:ok ,(fmt #f (pretty (eval `(begin ,@(string->forms str)))))))
+
 ;; Given a function name return a list of its arguments. This uses
 ;; the symbol-utils extension.
 (define (swank:operator-arglist func _)
@@ -317,7 +357,7 @@
            (cond
             ((unbound? sym) 'nil)
             ((procedure? (symbol-value sym))
-             (format "~a" (procedure-information (symbol-value sym))))
+             (fmt #f (procedure-information (symbol-value sym))))
             (else 'nil)))))
 
 ;; Immediately return from all nested debugging sessions back to
@@ -341,11 +381,92 @@
   (load file)
   `(:ok t))
 
+;; A more advanced version of swank:operator-arglist which highlights
+;; the the current cursor position in the argument list.
+(define (swank:autodoc forms . args)
+
+  (define (find-cursor thing)
+    (cond
+     ((and (list? thing)
+           (memq 'swank::%cursor-marker% thing))
+      thing)
+     ((list? thing)
+      (let loop ((elems thing))
+        (if (null? elems)
+            #f
+            (or (find-cursor (car elems))
+                (loop (cdr elems))))))
+     (else #f)))
+  
+  (define (highlight-arg info args)
+    (cond
+     ((null? info) '())
+     ((null? args) info)
+     ((not (pair? info))  ; Variable length argument list
+      (list '===> info '<===))  
+     ((eq? (car args) 'swank::%cursor-marker%)
+      (append (list '===> (car info) '<===)
+              (cdr info)))
+     ((and (string? (car args)) (string=? (car args) ""))
+      (highlight-arg info (cdr args)))
+     (else (cons (car info)
+                 (highlight-arg (cdr info) (cdr args))))))
+  
+  (define (info sym)
+    (cond
+     ((unbound? sym) #f)
+     ((procedure? (symbol-value sym))
+      (let ((pi (procedure-information (symbol-value sym))))
+        (if (pair? pi)
+            pi
+            `(,pi . args))))
+     (else #f)))
+  
+  (let ((where (find-cursor forms)))
+    (if (and where (string? (car where)))
+        (let ((i (info (string->symbol (car where)))))
+          (if i
+              `(:ok ,(fmt #f (highlight-arg i where)))
+              `(:ok :not-available)))
+        '(:ok :not-available))))
+
+;; Return a list of all symbols that start with `prefix'.
+(define (swank:simple-completions prefix _)
+  (let ((comps (filter (lambda (str)
+                         (string-prefix? prefix str))
+                       (map (lambda (info)
+                              (symbol->string (car info)))
+                            (apropos-information-list prefix)))))
+  `(:ok (,comps ,(if (= (length comps) 1)
+                     (car comps)
+                     prefix)))))
+
+(define (swank:describe-symbol sym)
+  `(:ok ,(with-output-to-string
+           (lambda ()
+             (doc-dwim sym)))))
+
+(define (swank:describe-definition-for-emacs sym type)
+  (swank:describe-symbol sym))
+
+(define (swank:apropos-list-for-emacs str . _)
+  (define (slime-node-type node)
+    (case (node-type node)
+      ((procedure) ':function)
+      ((read syntax) ':macro)
+      ((setter) ':setf)
+      ((class) ':class)
+      ((method) ':generic-function)
+      ((egg) ':egg)   ; Not visible
+      (else ':variable)))
+  
+  `(:ok ,(map (lambda (node)
+                (list ':designator (fmt #f (node-id node))
+                      (slime-node-type node) (node-signature node)))
+              (match-nodes (irregex str)))))
+
 ;; Unimplemented.
 (define (swank:buffer-first-change . _) '(:ok nil))
 (define (swank:filename-to-modulename . _) '(:ok nil))
 (define (swank:find-definitions-for-emacs . _) '(:ok nil))
-
-;; Definitions required for CL compatibility.
-(define nil #f)
-(define t #t)
+(define (swank:swank-require . _) '(:ok nil))

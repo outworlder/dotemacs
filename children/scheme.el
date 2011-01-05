@@ -16,7 +16,7 @@
 (add-to-list 'load-path "~/.emacs.children/support/slime") ; your SLIME directory
 
 (require 'slime)
-(slime-setup '(slime-fancy))
+(slime-setup '(slime-repl slime-autodoc))
 
 (autoload 'chicken-slime "chicken-slime" "SWANK backend for Chicken" t)
 (setq swank-chicken-path "~/.emacs.children/support/swank-chicken.scm")

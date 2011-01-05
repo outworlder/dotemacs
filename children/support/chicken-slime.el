@@ -3,14 +3,18 @@
                       :init chicken-slime-init)
             slime-lisp-implementations))
 
-(defvar swank-chicken-path "/path/to/swank-chicken.scm")
+(defvar swank-chicken-path nil
+  "Path to swank-chicken.scm. Set to nil to use installed extension.")
 
 (defun chicken-slime-init (file _)
   (setq slime-protocol-version 'ignore)
-  (let ((swank swank-chicken-path))
-    (format "%S\n"
-            `(begin (load ,swank) 
-                    (swank-server-start 4005 ,file)))))
+  (setq slime-complete-symbol-function 'slime-simple-complete-symbol)
+  
+  (format "%S\n"
+          `(begin ,(if swank-chicken-path
+                       `(load ,swank-chicken-path)   ; Interpet code for testing
+                     '(require-extension swank))     ; Normal use
+                  (swank-server-start 4005 ,file))))
 
 (defun chicken-slime ()
   (interactive)
