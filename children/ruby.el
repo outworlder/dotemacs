@@ -223,7 +223,7 @@
 			    (local-set-key [f1] 'ri)
 			    (local-set-key "\M-\C-i" 'ri-ruby-complete-symbol)
 			    (local-set-key [f4] 'ri-ruby-show-args)
-			    (local-set-key "\C-'" 'ruby-insert-=>)) t)
+			    (local-set-key (read-kbd-macro  "C-'") 'ruby-insert-=>)) t)
 
 (add-hook 'ruby-mode-hook
 	  (lambda ()
@@ -231,7 +231,3 @@
 
 (add-hook 'after-save-hook 'check-ruby-debugger-statement)
 (add-hook 'ruby-mode-hook 'check-ruby-debugger-statement)
-
-(add-hook 'ruby-mode-hook
-	  (lambda ()
-	    (local-set-key (read-kbd-macro "^'") 'ruby-insert-=>)))
