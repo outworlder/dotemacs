@@ -19,7 +19,7 @@
 (slime-setup '(slime-repl slime-autodoc))
 
 (autoload 'chicken-slime "chicken-slime" "SWANK backend for Chicken" t)
-(setq swank-chicken-path "~/.emacs.children/support/swank-chicken.scm")
+(setq swank-chicken-path "~/.emacs.children/support/swank-chicken/swank-chicken.scm")
 
 (add-hook 'scheme-mode-hook
           (lambda ()

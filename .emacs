@@ -44,6 +44,7 @@
 			      "~/.emacs.children/support/muse-latest/lisp"
 			      "~/.emacs.children/support/cluck"
 			      "~/.emacs.children/support/company"
+			      "~/.emacs.children/support/swank-chicken"
                               ) load-path ))
 
 
