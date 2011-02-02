@@ -67,16 +67,15 @@
 ;; (set-face-background 'mode-line "dim gray")
 (set-face-background 'region "#333377")
 
-(maybe-require 'highline
-		 (highline-mode-on)
-		 ;; (set-face-background 'highline "#222222")
-		 (set-face-background 'highline-face "#222222"))
+;; (maybe-require 'highline
+;; 		 (highline-mode-on)
+;; 		 ;; (set-face-background 'highline "#222222")
+;; 		 (set-face-background 'highline-face "#222222"))
 
 ;; This is for Aquamacs
-(unless (featurep 'highline)
-  (maybe-require 'hl-line
-		 (global-hl-line-mode 0)
-		 (set-face-background 'hl-line "#222222")))
+(maybe-require 'hl-line
+	       (global-hl-line-mode t)
+	       (set-face-background 'hl-line "#222222"))
 
 ;; Changing colors
 ;(color-theme-zenburn)
