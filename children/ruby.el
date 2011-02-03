@@ -134,7 +134,7 @@
 
 
 (defun find-file-in-project (file)
-  (interactive (list (if nil
+  (interactive (list (if (functionp 'ido-completing-read)
                          (ido-completing-read "Find file in project: " (mapcar 'car (project-files)))
                          (completing-read "Find file in project: " (mapcar 'car (project-files))))))
   (find-file (cdr (assoc file project-files-table))))
@@ -189,6 +189,25 @@
 
 (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
 
+(defun ruby-insert-hash-string ()
+  "Inserts a #{} but only if inside a string"
+  (interactive)
+  (let ((stringp (fourth (syntax-ppss)))
+	(skeleton-end-newline nil))
+    (if stringp
+	(skeleton-insert '(nil ?# ?{ _ ?} nil))
+      (skeleton-insert '(nil ?# _)))))
+
+(defun ruby-insert-=> ()
+  "Inserts a =>"
+  (interactive)
+  (let ((skeleton-end-newline nil))
+    (skeleton-insert '(nil " => "))))
+
+(add-hook 'ruby-mode-hook
+	  (lambda ()
+	    (local-set-key "#" 'ruby-insert-hash-string)))
+
 (add-hook 'ruby-mode-hook
           (lambda()
             (inf-ruby-keys)) t)
@@ -196,17 +215,19 @@
 
 (add-hook 'ruby-mode-hook
           (lambda ()
-	     ;; Don't want flymake mode for ruby regions in rhtml files and also on read only files
-	     (if (and (not (null buffer-file-name)) (file-writable-p buffer-file-name))
-		 (flymake-mode t))) t)
+	    ;; Don't want flymake mode for ruby regions in rhtml files and also on read only files
+	    (if (and (not (null buffer-file-name)) (file-writable-p buffer-file-name))
+		(flymake-mode t))) t)
 
 (add-hook 'ruby-mode-hook (lambda ()
 			    (local-set-key [f1] 'ri)
 			    (local-set-key "\M-\C-i" 'ri-ruby-complete-symbol)
 			    (local-set-key [f4] 'ri-ruby-show-args)
-			    ) t)
+			    (local-set-key (read-kbd-macro  "C-'") 'ruby-insert-=>)) t)
 
+(add-hook 'ruby-mode-hook
+	  (lambda ()
+	    (rvm-activate-corresponding-ruby)))
 
 (add-hook 'after-save-hook 'check-ruby-debugger-statement)
 (add-hook 'ruby-mode-hook 'check-ruby-debugger-statement)
-

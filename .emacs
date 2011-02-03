@@ -41,6 +41,10 @@
 			      "~/.emacs.children/support/auto-install"
 			      "~/.emacs.children/support/cedet-1.0pre7"
 			      "~/.emacs.children/support/jdee-2.4.0.1/lisp"
+			      "~/.emacs.children/support/muse-latest/lisp"
+			      "~/.emacs.children/support/cluck"
+			      "~/.emacs.children/support/company"
+			      "~/.emacs.children/support/swank-chicken"
                               ) load-path ))
 
 
@@ -56,13 +60,16 @@
 			  "ido"
 			  "elisp"
 			  "ruby"
+			  "rvm"
 			  "dictionary"
 			  "functions"
 			  "git"
-			  "egg"
+			  "go"
+			  ;"egg"
 			  "twit"
 			  "svn"
 			  "scheme"
+			  "paredit"
 			  "gnus"
 			  "bbdb"
 			  "lisp"
@@ -72,6 +79,7 @@
 			  "time_tracking"
 			  ;; "cedet"
 			  "jdee"
+			  "muse"
 			  "keymaps"
 			  "textmate"
 			  "theme") )
@@ -87,6 +95,10 @@
   ;; If there is more than one, they won't work right.
  '(auto-completion-delay 0.5)
  '(bbdb-complete-name-allow-cycling t)
+ '(cluck-fontify-style nil)
+ '(cluck-newline-behavior (quote indent-newline-indent))
+ '(cluck-pltish-fontify-definition-names-p t)
+ '(cluck-pltish-fontify-syntax-keywords-p t)
  '(completion-auto-show nil)
  '(completion-auto-show-delay 1)
  '(completion-use-echo t)
@@ -103,6 +115,7 @@
  '(erc-track-enable-keybindings t)
  '(erc-track-exclude-types (quote ("JOIN" "NICK" "PART" "QUIT" "333" "353")))
  '(erc-user-full-name "Stephen Pedrosa Eilert")
+ '(geiser-guile-binary "/usr/local/bin/guile")
  '(highline-ignore-regexp "Faces\\|Colors\\|Minibuf\\|\\*tip\\*\\|\\*.*\\*")
  '(highline-priority 9999)
  '(ido-enable-flex-matching t)
@@ -146,6 +159,7 @@ mouse-3: Remove current window from display")))))
  '(show-paren-mode t)
  '(speedbar-use-images t)
  '(timeclock-relative nil)
+ '(tm/dont-activate t)
  '(todochiku-icons-directory "~/.emacs.children/support/todochiku-icons")
  '(twit-follow-idle-interval 5)
  '(twit-show-user-images t)

@@ -30,6 +30,9 @@
 
 (global-set-key "\C-c\C-r" 'recentf-open-files)
 
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cs" 'org-schedule)
+
 (if (featurep 'ido)
     (progn
       (set-key "C-M-g" 'ido-goto-symbol)

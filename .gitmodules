@@ -19,3 +19,13 @@
 [submodule "children/support/egg"]
 	path = children/support/egg
 	url = http://github.com/bogolisk/egg.git
+
+[submodule "children/support/cluck"]
+	path = children/support/cluck
+	url = https://github.com/ddp/cluck.git
+[submodule "children/swank-chicken"]
+	path = children/swank-chicken
+	url = https://github.com/nickg/swank-chicken.git
+[submodule "children/support/swank-chicken"]
+	path = children/support/swank-chicken
+	url = https://github.com/nickg/swank-chicken.git
