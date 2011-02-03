@@ -60,7 +60,10 @@
 (maybe-require 'color-theme-railscasts
 	       (color-theme-railscasts))
 
-(color-theme-vivid-chalk)
+;; (color-theme-vivid-chalk)
+
+(load "color-theme-twilight.el" t)
+(color-theme-twilight)
 
 ;; (set-face-background 'mode-line "DarkRed")
 ;; (set-face-background 'mode-line "#222288")
