@@ -3,29 +3,26 @@
 	url = http://git.gitorious.org/magit/mainline.git
 [submodule "children/support/twit"]
 	path = children/support/twit
-	url = git://github.com/ieure/twit-el.git
+	url = http://github.com/ieure/twit-el
 [submodule "children/support/org-mode"]
 	path = children/support/org-mode
-	url = git://repo.or.cz/org-mode.git
+	url = http://orgmode.org/org-mode.git
 [submodule "children/support/emms"]
 	path = children/support/emms
-	url = git://git.sv.gnu.org/emms.git
+	url = http://git.sv.gnu.org/r/emms.git
 [submodule "children/support/w3"]
 	path = children/support/w3
-	url = git://git.sv.gnu.org/w3.git
-[submodule "emacs-rails"]
+	url = http://git.sv.gnu.org/r/w3.git
+[submodule "children/support/emacs-rails"]
 	path = children/support/emacs-rails
 	url = http://github.com/spedrosa/emacs-rails.git
 [submodule "children/support/egg"]
 	path = children/support/egg
 	url = http://github.com/bogolisk/egg.git
-
 [submodule "children/support/cluck"]
 	path = children/support/cluck
 	url = https://github.com/ddp/cluck.git
-[submodule "children/swank-chicken"]
-	path = children/swank-chicken
-	url = https://github.com/nickg/swank-chicken.git
 [submodule "children/support/swank-chicken"]
 	path = children/support/swank-chicken
 	url = https://github.com/nickg/swank-chicken.git
+ 
