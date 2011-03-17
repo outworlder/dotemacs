@@ -89,10 +89,10 @@
 ;;-----------------------------------------------------------------------------
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(auto-completion-delay 0.5)
  '(bbdb-complete-name-allow-cycling t)
  '(cluck-fontify-style nil)
@@ -159,6 +159,7 @@ mouse-3: Remove current window from display")))))
  '(show-paren-mode t)
  '(speedbar-use-images t)
  '(timeclock-relative nil)
+ '(timeclock-workday 32400)
  '(tm/dont-activate t)
  '(todochiku-icons-directory "~/.emacs.children/support/todochiku-icons")
  '(twit-follow-idle-interval 5)
@@ -166,10 +167,10 @@ mouse-3: Remove current window from display")))))
  '(twit-user "spedrosa@gmail.com")
  '(twit-user-image-dir "~/.emacs.twit/images"))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t (:height 105 :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(highlight-current-line-face ((t (:background "darkcyan"))))
  '(linum ((t (:inherit (shadow default) :background "gray10" :weight bold))))
