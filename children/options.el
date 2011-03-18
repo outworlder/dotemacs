@@ -53,7 +53,7 @@
 (window-numbering-mode 1)
 
 ;; Turning on the global-auto-revert-mode
-(global-auto-revert-mode)
+(global-auto-revert-mode t)
 
 (if (string-equal (system-name) "Arcturus")
     (setq emacs-location :home)
