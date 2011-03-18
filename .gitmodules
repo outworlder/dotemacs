@@ -13,9 +13,6 @@
 [submodule "children/support/w3"]
 	path = children/support/w3
 	url = http://git.sv.gnu.org/r/w3.git
-[submodule "children/support/emacs-rails"]
-	path = children/support/emacs-rails
-	url = http://github.com/spedrosa/emacs-rails.git
 [submodule "children/support/egg"]
 	path = children/support/egg
 	url = http://github.com/bogolisk/egg.git
@@ -26,3 +23,6 @@
 	path = children/support/swank-chicken
 	url = https://github.com/nickg/swank-chicken.git
  
+[submodule "children/support/emacs-rails"]
+	path = children/support/emacs-rails
+	url = http://github.com/spedrosa/emacs-rails.git
