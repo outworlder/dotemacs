@@ -89,10 +89,10 @@
 ;;-----------------------------------------------------------------------------
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(auto-completion-delay 0.5)
  '(bbdb-complete-name-allow-cycling t)
  '(cluck-fontify-style nil)
@@ -125,6 +125,7 @@
  '(js2-highlight-level 3)
  '(linum-delay t)
  '(linum-format "%4d ")
+ '(menu-bar-mode nil)
  '(mode-line-format (quote ("%e" #("-" 0 1 (help-echo "mouse-1: Select (drag to resize)
 mouse-2: Make current window occupy the whole frame
 mouse-3: Remove current window from display")) mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification #("   " 0 3 (help-echo "mouse-1: Select (drag to resize)
@@ -159,6 +160,7 @@ mouse-3: Remove current window from display")))))
  '(show-paren-mode t)
  '(speedbar-use-images t)
  '(timeclock-relative nil)
+ '(timeclock-workday 32400)
  '(tm/dont-activate t)
  '(todochiku-icons-directory "~/.emacs.children/support/todochiku-icons")
  '(twit-follow-idle-interval 5)
@@ -166,10 +168,10 @@ mouse-3: Remove current window from display")))))
  '(twit-user "spedrosa@gmail.com")
  '(twit-user-image-dir "~/.emacs.twit/images"))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t (:height 105 :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(highlight-current-line-face ((t (:background "darkcyan"))))
  '(linum ((t (:inherit (shadow default) :background "gray10" :weight bold))))
@@ -179,8 +181,9 @@ mouse-3: Remove current window from display")))))
  '(message-header-cc ((t (:foreground "DeepSkyBlue2"))))
  '(message-header-subject ((t (:foreground "yellow" :weight bold))))
  '(message-header-to ((t (:foreground "Red3" :weight bold))))
- '(mode-line ((t (:background "dim gray" :foreground "black" :box nil :height 0.9 :family "DejaVu Sans"))))
+ '(mode-line ((t (:background "dim gray" :foreground "black" :box nil :slant normal :weight normal :height 110 :width normal :foundry "unknown" :family "Monaco"))))
  '(mode-line-buffer-id ((t (:foreground "black" :weight bold))))
+ '(mode-line-inactive ((t (:inherit mode-line :foreground "grey80" :box nil :slant italic :weight normal :height 120 :width normal :foundry "unknown" :family "Monaco"))))
  '(mumamo-background-chunk-submode ((t (:background "#222233"))))
  '(quack-pltish-comment-face ((((class color) (background light)) (:foreground "red4"))))
  '(quack-pltish-defn-face ((t (:foreground "white" :slant italic :weight bold))))
