@@ -65,6 +65,7 @@
 			  "functions"
 			  "git"
 			  "go"
+			  "lua"
 			  ;"egg"
 			  "twit"
 			  "svn"
