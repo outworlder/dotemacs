@@ -227,7 +227,7 @@
 
 (add-hook 'ruby-mode-hook
 	  (lambda ()
-	    (rvm-activate-corresponding-ruby)))
+	    (rvm-activate-corresponding-ruby)) t)
 
 (add-hook 'after-save-hook 'check-ruby-debugger-statement)
 (add-hook 'ruby-mode-hook 'check-ruby-debugger-statement)
