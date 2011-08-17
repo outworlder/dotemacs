@@ -42,7 +42,6 @@
 (put 'scroll-right 'disabled nil)
 
 ;; Making Emacs scroll a buffer one line at a time, instead of half-screen
-b
 (setq scroll-step 1)
 (setq scroll-conservatively 5)
 
@@ -81,7 +80,7 @@ b
 	       (edit-server-start))
 
 ;; Enabling cut and copy with the clipboard
-(setq x-select-enable-primary nil)
-(setq x-select-enable-clipboard nil)
-(setq select-active-regions t)
-(global-set-key [mouse-2] 'mouse-yank-primary)
+;; (setq x-select-enable-primary nil)
+;; (setq x-select-enable-clipboard nil)
+;; (setq select-active-regions t)
+;; (global-set-key [mouse-2] 'mouse-yank-primary)
