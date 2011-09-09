@@ -84,3 +84,6 @@
 ;; (setq x-select-enable-clipboard nil)
 ;; (setq select-active-regions t)
 ;; (global-set-key [mouse-2] 'mouse-yank-primary)
+
+;;; Displaying flymake messages in the modeline
+(maybe-require flymake-cursor)
