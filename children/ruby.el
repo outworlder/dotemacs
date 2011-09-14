@@ -204,14 +204,14 @@
 	    (define-key ruby-mode-map "\C-m" 'newline-and-indent)
 	    (inf-ruby-keys)
 	    (local-set-key "#" 'ruby-insert-hash-string)
-	    (rvm-activate-corresponding-ruby)
 	    (local-set-key [f1] 'ri)
 	    (local-set-key "\M-\C-i" 'ri-ruby-complete-symbol)
 	    (local-set-key [f4] 'ri-ruby-show-args)
 	    (local-set-key (read-kbd-macro  "C-'") 'ruby-insert-=>)
 	    ;; Don't want flymake mode for ruby regions in rhtml files and also on read only files
 	    (if (and (not (null buffer-file-name)) (file-writable-p buffer-file-name))
-		(flymake-mode t))) t)
+		(flymake-mode t))
+	    	    (rvm-activate-corresponding-ruby)) t)
 
 (add-hook 'after-save-hook 'check-ruby-debugger-statement)
 (add-hook 'ruby-mode-hook 'check-ruby-debugger-statement)

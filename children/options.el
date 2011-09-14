@@ -17,7 +17,9 @@
 (prefer-coding-system 'utf-8)
 
 ;; Silencing the annoying bell
-(setq visible-bell t)
+(setq visible-bell nil)
+
+(setq ring-bell-function (lambda () ))
 
 ;; Setting the default tab width to 8 - this should be the default anyway
 (setq-default tab-width 8)
@@ -40,7 +42,6 @@
 (put 'scroll-right 'disabled nil)
 
 ;; Making Emacs scroll a buffer one line at a time, instead of half-screen
-
 (setq scroll-step 1)
 (setq scroll-conservatively 5)
 
@@ -79,7 +80,7 @@
 	       (edit-server-start))
 
 ;; Enabling cut and copy with the clipboard
-(setq x-select-enable-primary nil)
-(setq x-select-enable-clipboard nil)
-(setq select-active-regions t)
-(global-set-key [mouse-2] 'mouse-yank-primary)
+;; (setq x-select-enable-primary nil)
+;; (setq x-select-enable-clipboard nil)
+;; (setq select-active-regions t)
+;; (global-set-key [mouse-2] 'mouse-yank-primary)
