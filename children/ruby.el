@@ -80,13 +80,6 @@
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 
-;;(add-hook 'ruby-mode-hook 'turn-on-font-lock)
-(add-hook 'ruby-mode-hook
-	  (lambda ()
-	    (define-key ruby-mode-map "\C-m" 'newline-and-indent)))
-            ;(require 'ruby-electric)
-            ;(ruby-electric-mode t)))
-
 ;; TODO: Only check this for .rb files.
 ;; Warns if we are saving a file with a debugger statement
 (defun check-ruby-debugger-statement ()
@@ -204,30 +197,21 @@
   (let ((skeleton-end-newline nil))
     (skeleton-insert '(nil " => "))))
 
-(add-hook 'ruby-mode-hook
-	  (lambda ()
-	    (local-set-key "#" 'ruby-insert-hash-string)))
-
-(add-hook 'ruby-mode-hook
-          (lambda()
-            (inf-ruby-keys)) t)
-
+(rvm-use-default)
 
 (add-hook 'ruby-mode-hook
           (lambda ()
+	    (define-key ruby-mode-map "\C-m" 'newline-and-indent)
+	    (inf-ruby-keys)
+	    (local-set-key "#" 'ruby-insert-hash-string)
+	    (local-set-key [f1] 'ri)
+	    (local-set-key "\M-\C-i" 'ri-ruby-complete-symbol)
+	    (local-set-key [f4] 'ri-ruby-show-args)
+	    (local-set-key (read-kbd-macro  "C-'") 'ruby-insert-=>)
 	    ;; Don't want flymake mode for ruby regions in rhtml files and also on read only files
 	    (if (and (not (null buffer-file-name)) (file-writable-p buffer-file-name))
-		(flymake-mode t))) t)
-
-(add-hook 'ruby-mode-hook (lambda ()
-			    (local-set-key [f1] 'ri)
-			    (local-set-key "\M-\C-i" 'ri-ruby-complete-symbol)
-			    (local-set-key [f4] 'ri-ruby-show-args)
-			    (local-set-key (read-kbd-macro  "C-'") 'ruby-insert-=>)) t)
-
-(add-hook 'ruby-mode-hook
-	  (lambda ()
-	    (rvm-activate-corresponding-ruby)) t)
+		(flymake-mode t))
+	    	    (rvm-activate-corresponding-ruby)) t)
 
 (add-hook 'after-save-hook 'check-ruby-debugger-statement)
 (add-hook 'ruby-mode-hook 'check-ruby-debugger-statement)

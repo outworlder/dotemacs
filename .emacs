@@ -116,7 +116,6 @@
  '(erc-track-enable-keybindings t)
  '(erc-track-exclude-types (quote ("JOIN" "NICK" "PART" "QUIT" "333" "353")))
  '(erc-user-full-name "Stephen Pedrosa Eilert")
- '(exec-path (quote ("/usr/bin/" "/usr/bin" "/bin" "/usr/sbin" "/sbin" nil "/usr/local/bin" "/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin")))
  '(geiser-guile-binary "/usr/local/bin/guile")
  '(highline-ignore-regexp "Faces\\|Colors\\|Minibuf\\|\\*tip\\*\\|\\*.*\\*")
  '(highline-priority 9999)
