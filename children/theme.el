@@ -112,8 +112,10 @@
 (setq st-svn-status-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1")
 ;; (setq st-default-font "-unknown-Inconsolata-medium-*-*-*-16-*-*-*-*-0-iso10646-1")
 
-(setq st-default-font "DejaVu Sans Mono-12")
-(setq st-smaller-font "Verdana-10")
+;(setq st-default-font "DejaVu Sans Mono-12")
+(setq st-smaller-font "Inconsolata-14")
+(setq st-default-font "Inconsolata-18")
+;;(setq st-default-font "Menlo-16")
 
 ;; (defun dotemacs-try-fonts (font-list &optional funct)
 ;;   ;; Try every font in the list until one succeeds
@@ -133,12 +135,13 @@
 (add-to-list 'default-frame-alist `(font . ,st-default-font))
 
 ;; ;; Using a smaller font for the modeline
-;; (set-face-font 'mode-line st-smaller-font)
-;; (set-face-font 'mode-line-inactive st-smaller-font)
-;; ;;(set-face-font 'modeline-mousable "-unknown-DejaVu Sans-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
-;; (set-face-font 'modeline-mousable st-smaller-font)
-;; (set-face-font 'minibuffer-prompt st-smaller-font)
-;; (set-face-foreground 'mode-line "White")
+(set-face-font 'mode-line st-smaller-font)
+(set-face-font 'mode-line-inactive st-smaller-font)
+;;(set-face-font 'modeline-mousable "-unknown-DejaVu Sans-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
+(set-face-font 'modeline-mousable st-smaller-font)
+(set-face-font 'minibuffer-prompt st-smaller-font)
+(set-face-foreground 'mode-line "gray2")
+(set-face-background 'mode-line-inactive "gray2")
 
 (if (featurep 'ido)
     (progn
