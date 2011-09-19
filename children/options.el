@@ -86,4 +86,4 @@
 ;; (global-set-key [mouse-2] 'mouse-yank-primary)
 
 ;;; Displaying flymake messages in the modeline
-(maybe-require flymake-cursor)
+(maybe-require 'flymake-cursor)
