@@ -88,7 +88,8 @@
 ;;(set-face-font 'modeline-mousable "-unknown-DejaVu Sans-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
 (set-face-font 'modeline-mousable st-smaller-font)
 (set-face-font 'minibuffer-prompt st-smaller-font)
-(set-face-foreground 'mode-line "gray2")
+(set-face-foreground 'mode-line "white")
+(set-face-background 'mode-line "gray20")
 (set-face-background 'mode-line-inactive "gray2")
 (set-face-foreground 'mode-line-buffer-id "gray2")
 
