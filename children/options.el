@@ -87,3 +87,7 @@
 
 ;;; Displaying flymake messages in the modeline
 (maybe-require 'flymake-cursor)
+
+(delete-selection-mode t)
+
+(column-number-mode t)
