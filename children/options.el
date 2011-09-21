@@ -56,19 +56,17 @@
 ;; Turning on the global-auto-revert-mode
 (global-auto-revert-mode t)
 
-(if (string-equal (system-name) "Arcturus")
-    (setq emacs-location :home)
-  (setq emacs-location :atlantico))
+(if (string-equal (system-name) "Polaris")
+    (setq emacs-location :guilda)
+  (setq emacs-location :detran))
 
-(if (eq emacs-location :atlantico)
+(if (eq emacs-location :detran)
     (progn
-      (setq ecb-source-path (quote ("~/projetos/lvs/subversion/trunk")))
-      (setq default-directory "~/projects")
-      (require 'jira)
-      (setq jira-url "http://jira.atlantico.com.br/rpc/xmlrpc"))
+      (setq ecb-source-path (quote ("~/Documentos/Projetos/Detran")))
+      (setq default-directory "~/Documentos/Projetos/Detran"))
   (progn
-    (setq ecb-source-path (quote ("~/projects")))
-    (setq default-directory "~/projects")))
+    (setq ecb-source-path (quote ("~/Documents/Projects/Guilda")))
+    (setq default-directory "~/Documents/Projects/Guilda")))
 
 (put 'narrow-to-region 'disabled nil)
 
