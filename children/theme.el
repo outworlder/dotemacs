@@ -13,16 +13,7 @@
 (load "color-theme-twilight.el" t)
 (color-theme-twilight)
 
-;; (set-face-background 'mode-line "DarkRed")
-;; (set-face-background 'mode-line "#222288")
-;; (set-face-background 'mode-line "dim gray")
 (set-face-background 'region "#333377")
-
-;; (maybe-require 'highline
-;; 		 (highline-mode-on)
-;; 		 ;; (set-face-background 'highline "#222222")
-;; 		 (set-face-background 'highline-face "#222222"))
-
 ;; This is for Aquamacs
 (maybe-require 'hl-line
 	       (global-hl-line-mode t)
@@ -86,12 +77,11 @@
 (set-face-font 'mode-line st-smaller-font)
 (set-face-font 'mode-line-inactive st-smaller-font)
 ;;(set-face-font 'modeline-mousable "-unknown-DejaVu Sans-bold-normal-normal-*-14-*-*-*-*-0-iso10646-1")
-(set-face-font 'modeline-mousable st-smaller-font)
 (set-face-font 'minibuffer-prompt st-smaller-font)
 (set-face-foreground 'mode-line "white")
 (set-face-background 'mode-line "gray20")
 (set-face-background 'mode-line-inactive "gray2")
-(set-face-foreground 'mode-line-buffer-id "gray2")
+(set-face-foreground 'mode-line-buffer-id "cyan")
 
 (if (featurep 'ido)
     (progn
