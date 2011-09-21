@@ -1,16 +1,4 @@
 ;;; .emacs --- .Emacs main file
-;; .Emacs file
-
-
-;;; Commentary:
-;; 
-
-
-;;; History:
-;; 
-
-;;; Code:
-
 
 (require 'cl)
 
@@ -160,8 +148,8 @@ mouse-3: Remove current window from display")))))
  '(twit-user "spedrosa@gmail.com")
  '(twit-user-image-dir "~/.emacs.twit/images"))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; custom-set-faces was added by Custom. 
+;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(compilation-error ((t (:inherit font-lock-warning-face))))
