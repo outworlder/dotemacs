@@ -33,6 +33,7 @@
 			      "~/.emacs.children/support/cluck"
 			      "~/.emacs.children/support/company"
 			      "~/.emacs.children/support/swank-chicken"
+			      "~/.emacs.children/support/haskell-mode-2.8.0"
                               ) load-path ))
 
 
@@ -70,7 +71,8 @@
 			  "muse"
 			  "keymaps"
 			  "textmate"
-			  "theme") )
+			  "theme"
+			  "haskell") )
 
 (setq debug-on-error nil)
 
