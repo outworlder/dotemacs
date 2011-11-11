@@ -72,7 +72,8 @@
 			  "keymaps"
 			  "textmate"
 			  "theme"
-			  "haskell") )
+			  "haskell"
+			  "clojure") )
 
 (setq debug-on-error nil)
 
