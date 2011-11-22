@@ -56,17 +56,17 @@
 ;; Turning on the global-auto-revert-mode
 (global-auto-revert-mode t)
 
-(if (string-equal (system-name) "Polaris")
-    (setq emacs-location :guilda)
-  (setq emacs-location :detran))
+(defun set-dir-and-ecb (directory)
+  (setq ecb-source-path (list directory))
+  (setq default-directory directory))
 
-(if (eq emacs-location :detran)
-    (progn
-      (setq ecb-source-path (quote ("~/Documentos/Projetos/Detran")))
-      (setq default-directory "~/Documentos/Projetos/Detran"))
-  (progn
-    (setq ecb-source-path (quote ("~/Documents/Projects/Guilda")))
-    (setq default-directory "~/Documents/Projects/Guilda")))
+(defun setup-emacs-home-dir ()
+  (let ((dirs (list '("Polaris" "~/Documents/Projects/Guilda")
+		    '("ArcturusII" "~/Documents/Projects"))))
+    (or (set-dir-and-ecb (cadr (assoc (system-name) dirs))) "~/")))
+
+(setup-emacs-home-dir)
+
 
 (put 'narrow-to-region 'disabled nil)
 
