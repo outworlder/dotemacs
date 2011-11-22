@@ -63,7 +63,7 @@
 (defun setup-emacs-home-dir ()
   (let ((dirs (list '("Polaris" "~/Documents/Projects/Guilda")
 		    '("ArcturusII" "~/Documents/Projects"))))
-    (or (set-dir-and-ecb (cadr (assoc (system-name) dirs))) "~/")))
+    (set-dir-and-ecb (or (cadr (assoc (system-name) dirs)) "~/"))))
 
 (setup-emacs-home-dir)
 
