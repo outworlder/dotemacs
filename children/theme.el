@@ -3,15 +3,17 @@
 (require 'color-theme)
 (color-theme-initialize)
 
-(load "color-theme-vivid-chalk.el")
+;(load "color-theme-vivid-chalk.el")
+(load "color-theme-solarized" t)
+(color-theme-solarized-dark)
 
 ;(maybe-require 'color-theme-railscasts
 ;	       (color-theme-railscasts))
 
 ;; (color-theme-vivid-chalk)
 
-(load "color-theme-twilight.el" t)
-(color-theme-twilight)
+;; (load "color-theme-twilight.el" t)
+;; (color-theme-twilight)
 
 (set-face-background 'region "#333377")
 ;; This is for Aquamacs

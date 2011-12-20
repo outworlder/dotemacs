@@ -34,6 +34,7 @@
 			      "~/.emacs.children/support/company"
 			      "~/.emacs.children/support/swank-chicken"
 			      "~/.emacs.children/support/haskell-mode-2.8.0"
+			      "~/.emacs.children/support/color-theme-solarized"
                               ) load-path ))
 
 
