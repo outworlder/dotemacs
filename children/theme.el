@@ -5,7 +5,7 @@
 
 ;(load "color-theme-vivid-chalk.el")
 (load "color-theme-solarized" t)
-(color-theme-solarized-dark)
+(color-theme-solarized-light)
 
 ;(maybe-require 'color-theme-railscasts
 ;	       (color-theme-railscasts))
@@ -15,11 +15,11 @@
 ;; (load "color-theme-twilight.el" t)
 ;; (color-theme-twilight)
 
-(set-face-background 'region "#333377")
+;;(set-face-background 'region "#333377")
 ;; This is for Aquamacs
 (maybe-require 'hl-line
-	       (global-hl-line-mode t)
-	       (set-face-background 'hl-line "#222222"))
+	       (global-hl-line-mode t))
+	       ;(set-face-background 'hl-line "#222222"))
 
 ;; Changing colors
 ;(color-theme-zenburn)
