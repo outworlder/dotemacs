@@ -74,6 +74,7 @@
 			  "textmate"
 			  "theme"
 			  "haskell"
+			  "puppet"
 			  "clojure") )
 
 (setq debug-on-error nil)
