@@ -75,6 +75,7 @@
 			  "theme"
 			  "haskell"
 			  "puppet"
+			  "coffee"
 			  "clojure") )
 
 (setq debug-on-error nil)
