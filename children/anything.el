@@ -1,6 +1,6 @@
-(require 'anything)
-(require 'anything-config)
-(require 'anything-auto-install)
+(maybe-require 'anything)
+(maybe-require 'anything-config)
+(maybe-require 'anything-auto-install)
 
 ;; (defvar anything-c-source-M-x
 ;;   (anything-c-define-dummy-source
@@ -8,7 +8,7 @@
 ;;    #'anything-c-dummy-candidate
 ;;    '(type . command)))
 
-(require 'anything-complete)
+(maybe-require 'anything-complete)
 ;; ;; Automatically collect symbols by 150 secs
 (anything-lisp-complete-symbol-set-timer 150)
 ;; ;; replace completion commands with `anything'
@@ -20,7 +20,7 @@
 ;;   (append 
 
 
-(require 'lacarte)
+(maybe-require 'lacarte)
 
 (if (featurep 'lacarte)
     (progn
