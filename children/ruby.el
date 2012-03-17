@@ -65,6 +65,7 @@
      (assoc "\\.rhtml$" auto-mode-alist) 'nxml-rails-mode)
   (add-to-list 'auto-mode-alist '("\\.rhtml$" . nxml-rails-mode)))
 
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 ;; ;; Converting eruby-nxhtml-mumamo to nxml-rails-mode
 (mapc (lambda(element)
 	(if (eql (cdr element) 'eruby-nxhtml-mumamo-mode)
