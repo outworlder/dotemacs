@@ -32,7 +32,7 @@
 
 ;; Changing the flymake error face
 (maybe-require 'flymake
-	       (set-face-background 'flymake-errline "coral4"))
+	       (set-face-background 'flymake-errline "LightSalmon"))
 
 ;; Font Specification
 ;;;      -maker-family-weight-slant-widthtype-style...
