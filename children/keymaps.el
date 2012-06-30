@@ -28,7 +28,7 @@
     
 (set-key "<C-f7>" 'count-todos-in-buffer)
 
-(global-set-key "\C-c\C-r" 'recentf-open-files)
+;(global-set-key "\C-c\C-r" 'recentf-open-files)
 
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cs" 'org-schedule)

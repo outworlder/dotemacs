@@ -1,2 +1,2 @@
-(recentf-mode t)
+;(recentf-mode t)
 

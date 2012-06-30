@@ -17,6 +17,8 @@
 
 ;;-----------------------------------------------------------------------------
 
+(setq load-path (cons "~/.emacs.children/support/org-mode/lisp" load-path))
+
 (setq load-path (append (list "~/.emacs.children/support"
 			      "~/.emacs.children/support/color-theme-6.6.0"
                               "~/.emacs.children/support/emacs-rails"
@@ -43,50 +45,13 @@
 
 (setq dotemacs-children-prefix "~/.emacs.children/")
 
-;;(require 'dotemacs)
-(load "~/.emacs.children/dotemacs.el")
-(dotemacs-load-children '("options"
-			  "recentf"
-			  "ido"
-			  "elisp"
-			  "ruby"
-			  "dictionary"
-			  "functions"
-			  "git"
-			  "go"
-			  "lua"
-			  ;"egg"
-			  "twit"
-			  "svn"
-			  "scheme"
-			  "paredit"
-			  "gnus"
-			  "bbdb"
-			  "lisp"
-			  "w3"
-			  "anything"
-			  "company"
-			  "time_tracking"
-			  ;; "cedet"
-			  "jdee"
-			  "muse"
-			  "keymaps"
-			  "textmate"
-			  "theme"
-			  "haskell"
-			  "puppet"
-			  "coffee"
-			  "clojure") )
-
-(setq debug-on-error nil)
-
 ;;-----------------------------------------------------------------------------
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
  '(auto-completion-delay 0.5)
  '(bbdb-complete-name-allow-cycling t)
  '(cluck-fontify-style nil)
@@ -140,6 +105,7 @@ mouse-3: Remove current window from display")))))
  '(org-agenda-files nil)
  '(org-enforce-todo-dependencies t)
  '(org-modules (quote (org-bbdb org-bibtex org-gnus org-info org-jsinfo org-irc org-mew org-mhe org-rmail org-vm org-wl org-w3m org-mouse)))
+ '(org-startup-folded nil)
  '(rails-always-use-text-menus t)
  '(rails-tags-command "ctags-exuberant -e -a --Ruby-kinds=-f -o %s -R %s")
  '(rails-ws:default-server-type "mongrel")
@@ -154,17 +120,13 @@ mouse-3: Remove current window from display")))))
  '(twit-user "spedrosa@gmail.com")
  '(twit-user-image-dir "~/.emacs.twit/images"))
 (custom-set-faces
- ;; custom-set-faces was added by Custom. 
-;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
  '(compilation-error ((t (:inherit font-lock-warning-face))))
  '(font-lock-warning-face ((t (:background "darkred" :foreground "red"))))
- ;'(highlight-current-line-face ((t (:background "darkcyan"))))
- ;'(linum ((t (:inherit (shadow default) :background "gray10" :weight bold))))
- ;'(magit-branch ((t (:inherit magit-header :background "blue" :slant italic :weight bold))))
  '(magit-diff-hunk-header ((t (:inherit magit-header :background "darkgreen"))))
- ;'(magit-header ((t (:background "darkred"))))
  '(message-header-cc ((t (:foreground "DeepSkyBlue2"))))
  '(message-header-subject ((t (:foreground "yellow" :weight bold))))
  '(message-header-to ((t (:foreground "Red3" :weight bold))))
@@ -175,6 +137,46 @@ mouse-3: Remove current window from display")))))
 
 ;;-----------------------------------------------------------------------------
 
+;;(require 'dotemacs)
+(load "~/.emacs.children/dotemacs.el")
+(dotemacs-load-children '("options"
+			  "org-mode"
+			  "recentf"
+			  "ido"
+			  "elisp"
+			  "ruby"
+			  "dictionary"
+			  "functions"
+			  "git"
+			  "go"
+			  "lua"
+			  ;"egg"
+			  "twit"
+			  "svn"
+			  "scheme"
+			  "paredit"
+			  "gnus"
+			  "bbdb"
+			  "lisp"
+			  "w3"
+			  "anything"
+			  "company"
+			  "time_tracking"
+			  ;; "cedet"
+			  "jdee"
+			  "muse"
+			  "keymaps"
+			  "textmate"
+			  "theme"
+			  "haskell"
+			  "puppet"
+			  "coffee"
+			  "clojure"
+			  "epresent"
+			  "protobuf"
+			  "powerline") )
+
+(setq debug-on-error nil)
 
 
 (provide '.emacs)

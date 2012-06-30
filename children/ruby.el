@@ -217,3 +217,10 @@
 
 (add-hook 'after-save-hook 'check-ruby-debugger-statement)
 (add-hook 'ruby-mode-hook 'check-ruby-debugger-statement)
+
+
+(autoload 'run-ruby "inf-ruby"
+"Run an inferior Ruby process")
+(autoload 'inf-ruby-keys "inf-ruby" 
+"Set local key defs for inf-ruby in ruby-mode")
+(eval-after-load "ruby-mode" '(inf-ruby-keys))

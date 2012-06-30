@@ -54,8 +54,8 @@
 ;; (setq st-default-font "-unknown-Inconsolata-medium-*-*-*-16-*-*-*-*-0-iso10646-1")
 
 ;(setq st-default-font "DejaVu Sans Mono-12")
-(setq st-smaller-font "Inconsolata-12")
-(setq st-default-font "Inconsolata-14")
+(setq st-smaller-font "Inconsolata-14")
+(setq st-default-font "Inconsolata-16")
 ;;(setq st-default-font "Menlo-16")
 
 ;; (defun dotemacs-try-fonts (font-list &optional funct)
