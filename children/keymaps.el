@@ -17,7 +17,7 @@
 (set-key "<f11>" 'gdb)
 (set-key "<f12>" 'gdb-many-windows)
 
-(set-key "<C-f1>" 'compile)
+(set-key "<C-c c>" 'compile)
 
 (set-key "<M-S-f9>" 'find-file-in-project)
 (set-key "<C-f5>" 'jira-show-assigned-me)

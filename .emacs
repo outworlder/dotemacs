@@ -174,6 +174,8 @@ mouse-3: Remove current window from display")))))
 			  "clojure"
 			  "epresent"
 			  "protobuf"
+			  "cmake-mode"
+			  "c"
 			  "powerline") )
 
 (setq debug-on-error nil)
