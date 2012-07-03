@@ -20,7 +20,7 @@
 (setq powerline-color2 "grey40")
 
 (set-face-attribute 'mode-line nil
-                    :background "OliveDrab3"
+                    :background "OliveDrab4"
                     :box nil)
 (set-face-attribute 'mode-line-inactive nil
                     :box nil)
